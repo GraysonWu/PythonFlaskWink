@@ -6,7 +6,7 @@ from passlib.hash import sha256_crypt
 import entities
 import sql
 import utility
-#jjjjjjjjjjjjjjjjjggggggggggggg
+
 app = Flask(__name__)
 
 # Config MySQL
