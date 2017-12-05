@@ -15,7 +15,6 @@ app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = 'wujiahao.'
 app.config['MYSQL_DB'] = 'flaskTest'
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
-# CREATE TABLE users(id INT(20) AUTO_INCREMENT PRIMARY KEY , name VARCHAR(100), email VARCHAR(100) UNIQUE , username VARCHAR(45)  ,phone_number VARCHAR(20), password VARCHAR(100),register_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
 
 # Init MySQL
 mysql = MySQL(app)
@@ -117,3 +116,7 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
+# CREATE TABLE users(id INT(20) AUTO_INCREMENT PRIMARY KEY , name VARCHAR(100), email VARCHAR(100) UNIQUE , username VARCHAR(45)  ,phone_number VARCHAR(20), password VARCHAR(100),register_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
+
