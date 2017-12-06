@@ -52,8 +52,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="429">
-                <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
+              <first_editor relative-caret-position="165">
+                <caret line="2" column="153" selection-start-line="2" selection-start-column="153" selection-end-line="2" selection-end-column="153" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -603,7 +603,14 @@
       <option name="project" value="LOCAL" />
       <updated>1512541007400</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="readme">
+      <created>1512545879995</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1512545879995</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -782,8 +789,8 @@
       </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="429">
-            <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
+          <first_editor relative-caret-position="165">
+            <caret line="2" column="153" selection-start-line="2" selection-start-column="153" selection-end-line="2" selection-end-column="153" />
             <folding />
           </first_editor>
           <second_editor />
