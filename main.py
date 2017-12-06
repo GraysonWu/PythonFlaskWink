@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 from flask import Flask, render_template
-from passlib.hash import sha256_crypt
 
 import entities
 import sql
 from register_process import register_process
+from login_process import  login_process
 
 app = Flask(__name__)
 
@@ -24,41 +24,19 @@ def registerProcess():
     password = "123456"
     phone_number = "13609756780"
 
-    password = sha256_crypt.hash(password)
-
-    password_verify = sha256_crypt.verify("123456", password)
-
     user = entities.User(name, phone_number, email, password)
 
-    if password_verify:
-        return register_process(user)
+    return register_process(user)
 
+@app.route('/login/')
+def loginProcess():
+    #TODO: get phone number and password from request
 
-@app.route('/userinfo/')
-def userinfoProcess():
-    # Create cursor
-    cur = mysql.connection.cursor()
+    #temp login try
+    phone_number = "13609756780"
+    password = "123456"
 
-    tablename = "users"
-    select_key = ["phone_number", "email"]
-
-    condition = {}
-    condition["username"] = "Jeako"
-
-    query = sql.select(tablename, select_key, condition, 0)
-
-    result = cur.execute(query)
-
-    rs = cur.fetchall()
-
-    # Commit to DB
-    mysql.connection.commit()
-
-    # Close connection
-    cur.close()
-
-    return str(rs)
-
+    return login_process(phone_number , password)
 
 @app.route('/updateuserinfo/')
 def updateuserinfoProcess():

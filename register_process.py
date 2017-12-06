@@ -1,9 +1,14 @@
 import utility
 import sql
 import MySQLdb
+from passlib.hash import sha256_crypt
 
 
 def register_process(user):
+
+    # user password 加密
+    user.password = sha256_crypt.hash(user.password)
+
     try:
         # 打开数据库连接
         db = MySQLdb.connect("localhost", "root", "wujiahao.", "flaskTest")
@@ -14,14 +19,18 @@ def register_process(user):
         # 生成SQL语句
         query = sql.insert('users', utility.class_2_dict(user))
 
-        # 使用execute方法执行SQL语句
+
         try:
+            # 使用execute方法执行SQL语句
             cursor.execute(query)
 
+            # 提交操作到db
             db.commit()
-        except:
 
+        except:
+            # 操作失败回滚
             db.rollback()
+
             return "User already exist"
 
         # 关闭数据库连接
