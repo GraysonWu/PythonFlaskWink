@@ -35,10 +35,10 @@ def loginProcess():
     #TODO: get phone number and password from request
 
     #temp login try
-    phone_number = "wujiahao"
+    account = "13609756780"
     password = "123456"
 
-    return login_process(phone_number , password)
+    return login_process(account , password)
 
 @app.route('/updateuserinfo/')
 def updateuserinfoProcess():
@@ -73,7 +73,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-# CREATE TABLE users(id INT(20) AUTO_INCREMENT PRIMARY KEY , name VARCHAR(100)  UNIQUE,phone_number VARCHAR(20)  UNIQUE, password VARCHAR(100),register_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP)DEFAULT CHARSET=utf8;
-

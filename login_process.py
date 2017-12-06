@@ -18,7 +18,7 @@ def login_process(account , password):
         key = ["password"]
         condition = {}
 
-        if account[0]>='0' and account[0] <= '9':
+        if '9' >= account[0] >= '0' or account[0] == '+':
             condition["phone_number"] = account
         else:
             condition["name"] = account
