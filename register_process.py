@@ -1,8 +1,11 @@
+# !/usr/bin/python3
+# -*- coding: utf-8 -*-
+__author__ = "Jeako_Wu"
+
 import utility
 import sql
 import MySQLdb
 from passlib.hash import sha256_crypt
-
 
 def register_process(user):
 

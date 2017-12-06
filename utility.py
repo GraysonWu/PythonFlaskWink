@@ -1,3 +1,7 @@
+# !/usr/bin/python3
+# -*- coding: utf-8 -*-
+__author__ = "Jeako_Wu"
+
 def class_2_dict(obj):
     dict = {}
     dict.update(obj.__dict__)

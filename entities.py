@@ -1,8 +1,11 @@
+# !/usr/bin/python3
+# -*- coding: utf-8 -*-
+__author__ = "Jeako_Wu"
+
 class User:
-    def __init__(self, name, phone_number, email, password):
+    def __init__(self, name, phone_number,password):
         self.name = name
         self.phone_number = phone_number
-        self.email = email
         self.password = password
 
 

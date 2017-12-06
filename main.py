@@ -1,4 +1,7 @@
-#!/usr/bin/python3
+# !/usr/bin/python3
+# -*- coding: utf-8 -*-
+__author__ = "Jeako_Wu"
+
 from flask import Flask, render_template
 
 import entities
@@ -19,12 +22,11 @@ def registerProcess():
     #TODO: set User with request
 
     #temp user
-    name = "wujiahao"
-    email = "wjh951022@gmail.com"
+    name = "zhangqi"
     password = "123456"
-    phone_number = "13609756780"
+    phone_number = "+8618819253694"
 
-    user = entities.User(name, phone_number, email, password)
+    user = entities.User(name, phone_number, password)
 
     return register_process(user)
 
@@ -73,5 +75,5 @@ if __name__ == '__main__':
     main()
 
 
-# CREATE TABLE users(id INT(20) AUTO_INCREMENT PRIMARY KEY , name VARCHAR(100)  UNIQUE, email VARCHAR(100) UNIQUE ,phone_number VARCHAR(20)  UNIQUE, password VARCHAR(100),register_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
+# CREATE TABLE users(id INT(20) AUTO_INCREMENT PRIMARY KEY , name VARCHAR(100)  UNIQUE,phone_number VARCHAR(20)  UNIQUE, password VARCHAR(100),register_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP)DEFAULT CHARSET=utf8;
 

@@ -1,4 +1,7 @@
-import utility
+# !/usr/bin/python3
+# -*- coding: utf-8 -*-
+__author__ = "Jeako_Wu"
+
 import sql
 import MySQLdb
 from passlib.hash import sha256_crypt
