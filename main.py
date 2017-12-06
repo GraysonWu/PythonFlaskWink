@@ -22,9 +22,9 @@ def registerProcess():
     #TODO: set User with request
 
     #temp user
-    name = "zhangqi"
+    name = "wujiahao"
     password = "123456"
-    phone_number = "+8618819253694"
+    phone_number = "13609756780"
 
     user = entities.User(name, phone_number, password)
 
@@ -35,7 +35,7 @@ def loginProcess():
     #TODO: get phone number and password from request
 
     #temp login try
-    phone_number = "13609756780"
+    phone_number = "wujiahao"
     password = "123456"
 
     return login_process(phone_number , password)

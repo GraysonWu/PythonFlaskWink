@@ -6,7 +6,7 @@ import sql
 import MySQLdb
 from passlib.hash import sha256_crypt
 
-def login_process(phone_number , password):
+def login_process(account , password):
 
     try:
         # 打开数据库连接
@@ -16,31 +16,37 @@ def login_process(phone_number , password):
         cursor = db.cursor()
 
         key = ["password"]
-        condition ={}
-        condition["phone_number"] = phone_number
+        condition = {}
+
+        if account[0]>='0' and account[0] <= '9':
+            condition["phone_number"] = account
+        else:
+            condition["name"] = account
 
         # 生成SQL语句
         query = sql.select('users', key , condition , 0)
 
         # 使用execute方法执行SQL语句
-        cursor.execute(query)
+        if cursor.execute(query):
+            # 获取结果
+            result = cursor.fetchone()
 
-        # 获取结果
-        result = cursor.fetchone()
+            # 关闭数据库连接
+            db.close()
 
+            password_verified = sha256_crypt.verify(password, str(result[0]))
 
-        # 关闭数据库连接
-        db.close()
+            if password_verified:
 
-        password_verified = sha256_crypt.verify(password, str(result[0]))
+                return "Successfully Login"
 
-        if password_verified:
+            else:
 
-            return "Successfully Login"
+                return "Wrong password"
 
         else:
+            return "User not exist"
 
-            return "Wrong password or phone number"
 
     except:
 
