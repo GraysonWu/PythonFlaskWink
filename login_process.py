@@ -15,9 +15,13 @@ def login_process(account , password):
         # 使用cursor()方法获取操作游标
         cursor = db.cursor()
 
+        # 查询字段
         key = ["password"]
+
+        # 查询条件
         condition = {}
 
+        # 可以用phone number也可以用name登录
         if '9' >= account[0] >= '0' or account[0] == '+':
             condition["phone_number"] = account
         else:
@@ -34,6 +38,7 @@ def login_process(account , password):
             # 关闭数据库连接
             db.close()
 
+            # 验证密码
             password_verified = sha256_crypt.verify(password, str(result[0]))
 
             if password_verified:

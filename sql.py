@@ -4,6 +4,7 @@ __author__ = "Jeako_Wu"
 
 import utility
 
+# create sql query
 
 def insert(table, dict):
     # '''

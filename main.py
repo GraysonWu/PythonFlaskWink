@@ -8,6 +8,7 @@ import entities
 import sql
 from register_process import register_process
 from login_process import  login_process
+from update_userinfo_process import update_process
 
 app = Flask(__name__)
 
@@ -32,7 +33,7 @@ def registerProcess():
 
 @app.route('/login/')
 def loginProcess():
-    #TODO: get phone number and password from request
+    #TODO: get account and password from request
 
     #temp login try
     account = "13609756780"
@@ -42,29 +43,16 @@ def loginProcess():
 
 @app.route('/updateuserinfo/')
 def updateuserinfoProcess():
-    # Create cursor
-    cur = mysql.connection.cursor()
+    #TODO: set User with request
 
-    tablename = "users"
-    value = {}
-    value["username"] = "Wink"
-    condition = {}
-    condition["name"] = "zhangqi"
+    # temp user
+    name = "wujiahao"
+    password = "123456"
+    phone_number = "13609756780"
 
-    query = sql.update(tablename, value, condition)
+    user = entities.User(name, phone_number, password)
+    return update_process(user)
 
-    result = cur.execute(query)
-
-    # Commit to DB
-    mysql.connection.commit()
-
-    # Close connection
-    cur.close()
-
-    if result:
-        return "Success"
-    else:
-        return "Fail"
 
 
 def main():
