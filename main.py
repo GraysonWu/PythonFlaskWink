@@ -2,57 +2,65 @@
 # -*- coding: utf-8 -*-
 # __author__ = "Jeako_Wu"
 
-from flask import Flask, render_template
+from flask import Flask, request, jsonify
 
 import entities
-import sql
+import functools
 from register_process import register_process
 from login_process import  login_process
 from update_userinfo_process import update_process
 
 app = Flask(__name__)
 
+
+def require(*required_args):
+    def decorator(func):
+        @functools.wraps(func)
+        def wrapper(*args, **kw):
+            for arg in required_args:
+                if arg not in request.json:
+                    return jsonify(code=400, msg='参数不正确')
+            return func(*args, **kw)
+        return wrapper
+    return decorator
+
+
 @app.route('/')
 @app.route('/index/')
 def index():
-    return render_template('index.html')
+    return "<h>ARE YOU OK</H>"
 
 
-@app.route('/register/')
-def registerProcess():
-    #TODO: set User with request
-
-    #temp user
-    name = "wujiahao"
-    password = "123456"
-    phone_number = "13609756780"
+@app.route('/register/', methods=['POST'])
+@require('name', 'phone_number', 'password')
+def register():
+    name = request.json.get("name")
+    password = request.json.get("password")
+    phone_number = request.json.get("phone_number")
 
     user = entities.User(name, phone_number, password)
 
     return register_process(user)
 
-@app.route('/login/')
-def loginProcess():
-    #TODO: get account and password from request
 
-    #temp login try
-    account = "13609756780"
-    password = "123456"
+@app.route('/login/', methods=['POST'])
+@require('account', 'password')
+def login():
+    account = request.json.get("account")
+    password = request.json.get("password")
 
-    return login_process(account , password)
+    return login_process(account, password)
 
-@app.route('/updateuserinfo/')
-def updateuserinfoProcess():
-    #TODO: set User with request
 
-    # temp user
-    name = "wujiahao"
-    password = "123456"
-    phone_number = "13609756780"
+@app.route('/update/', methods=['POST'])
+@require('name', 'phone_number', 'password')
+def update():
+    name = request.json.get("name")
+    password = request.json.get("password")
+    phone_number = request.json.get("phone_number")
 
     user = entities.User(name, phone_number, password)
     return update_process(user)
-
 
 
 def main():
