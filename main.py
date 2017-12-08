@@ -2,10 +2,11 @@
 # -*- coding: utf-8 -*-
 # __author__ = "Jeako_Wu"
 
-from flask import Flask, request, jsonify
+from flask import Flask, request
 
 import entities
-import functools
+
+from hd_base import require
 from register_process import register_process
 from login_process import  login_process
 from update_userinfo_process import update_process
@@ -13,16 +14,6 @@ from update_userinfo_process import update_process
 app = Flask(__name__)
 
 
-def require(*required_args):
-    def decorator(func):
-        @functools.wraps(func)
-        def wrapper(*args, **kw):
-            for arg in required_args:
-                if arg not in request.json:
-                    return jsonify(code=400, msg='参数不正确')
-            return func(*args, **kw)
-        return wrapper
-    return decorator
 
 
 @app.route('/')
