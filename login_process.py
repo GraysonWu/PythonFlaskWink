@@ -3,14 +3,15 @@
 # __author__ = "Jeako_Wu"
 
 import sql
-import MySQLdb
+import pymysql
 from passlib.hash import sha256_crypt
 
-def login_process(account , password):
+
+def login_process(number, password, identity):
 
     try:
         # 打开数据库连接
-        db = MySQLdb.connect("localhost", "root", "wujiahao.", "flaskTest")
+        db = pymysql.connect("localhost", "root", "wujiahao.", "flaskTest")
 
         # 使用cursor()方法获取操作游标
         cursor = db.cursor()
@@ -19,16 +20,16 @@ def login_process(account , password):
         key = ["password"]
 
         # 查询条件
-        condition = {}
+        condition = {'number': number}
 
         # 可以用phone number也可以用name登录
-        if '9' >= account[0] >= '0' or account[0] == '+':
-            condition["phone_number"] = account
-        else:
-            condition["name"] = account
+        # if '9' >= account[0] >= '0' or account[0] == '+':
+        #     condition["number"] = account
+        # else:
+        #     condition["username"] = account
 
         # 生成SQL语句
-        query = sql.select('users', key , condition , 0)
+        query = sql.select(identity, key, condition, 0)
 
         # 使用execute方法执行SQL语句
         if cursor.execute(query):
@@ -43,14 +44,14 @@ def login_process(account , password):
 
             if password_verified:
 
-                return "Successfully Login"
+                return "登录成功", True
 
             else:
 
-                return "Wrong password"
+                return "密码错误", False
 
         else:
-            return "User not exist"
+            return "用户不存在，请先注册", False
 
 
     except:

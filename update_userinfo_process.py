@@ -3,7 +3,7 @@
 # __author__ = "Jeako_Wu"
 
 import sql
-import MySQLdb
+import pymysql
 from passlib.hash import sha256_crypt
 
 
@@ -11,7 +11,7 @@ def update_process(user):
 
     try:
         # 打开数据库连接
-        db = MySQLdb.connect("localhost", "root", "wujiahao.", "flaskTest")
+        db = pymysql.connect("localhost", "root", "wujiahao.", "flaskTest")
 
         # 使用cursor()方法获取操作游标
         cursor = db.cursor()

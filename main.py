@@ -5,6 +5,7 @@
 from flask import Flask, request
 
 import entities
+import utility
 
 from hd_base import require
 from register_process import register_process
@@ -22,25 +23,39 @@ def index():
     return "<h>ARE YOU OK</H>"
 
 
-@app.route('/register/', methods=['POST'])
-@require('name', 'phone_number', 'password')
+@app.route('/register', methods=['POST'])
+@require('username', 'number', 'password', 'identity')
 def register():
-    name = request.json.get("name")
+    username = request.json.get("username")
     password = request.json.get("password")
-    phone_number = request.json.get("phone_number")
+    number = request.json.get("number")
+    identity = request.json.get("identity")
 
-    user = entities.User(name, phone_number, password)
+    user = entities.User(username, number, password)
 
-    return register_process(user)
+    result = register_process(user, identity)
+    response = entities.Response(True, "")
+
+    response.msg = result[0]
+    response.isSuccess = result[1]
+
+    return str(utility.class_2_dict(response))
 
 
-@app.route('/login/', methods=['POST'])
-@require('account', 'password')
+@app.route('/login', methods=['POST'])
+@require('number', 'password', 'identity')
 def login():
-    account = request.json.get("account")
+    number = request.json.get("number")
     password = request.json.get("password")
+    identity = request.json.get("identity")
 
-    return login_process(account, password)
+    result = login_process(number, password, identity)
+    response = entities.Response(True, "")
+
+    response.msg = result[0]
+    response.isSuccess = result[1]
+
+    return str(utility.class_2_dict(response))
 
 
 @app.route('/update/', methods=['POST'])

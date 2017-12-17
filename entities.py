@@ -2,11 +2,18 @@
 # -*- coding: utf-8 -*-
 # __author__ = "Jeako_Wu"
 
+
 class User:
-    def __init__(self, name, phone_number,password):
-        self.name = name
-        self.phone_number = phone_number
+    def __init__(self, username, number, password):
+        self.username = username
+        self.number = number
         self.password = password
+
+
+class Response:
+    def __init__(self, isSuccess, msg):
+        self.isSuccess = isSuccess
+        self.msg = msg
 
 
 class Commodity:
