@@ -20,10 +20,10 @@ app = Flask(__name__)
 @app.route('/')
 @app.route('/index/')
 def index():
-    return "<h>ARE YOU OK</H>"
+    return "<h>ARE YOU OK</h>"
 
 
-@app.route('/register', methods=['POST'])
+@app.route('/signup', methods=['POST'])
 @require('username', 'number', 'password', 'identity')
 def register():
     username = request.json.get("username")
