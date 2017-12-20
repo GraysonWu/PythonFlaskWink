@@ -2,20 +2,37 @@
 # -*- coding: utf-8 -*-
 # __author__ = "Jeako_Wu"
 
-from flask import Flask, request
+from flask import Flask, request, Response
 
 import entities
 import utility
+import json
 
 from hd_base import require
 from register_process import register_process
 from login_process import  login_process
 from update_userinfo_process import update_process
+from werkzeug.datastructures import Headers
+
+class MyResponse(Response):
+    def __init__(self, response=None, **kwargs):
+        kwargs['headers'] = ''
+        headers = kwargs.get('headers')
+        # 跨域控制
+        origin = ('Access-Control-Allow-Origin', '*')
+        methods = ('Access-Control-Allow-Methods', 'HEAD, OPTIONS, GET, POST, DELETE, PUT')
+        header = ('Access-Control-Allow-Headers','x-requested-with,content-type')
+        if headers:
+            headers.add(*origin)
+            headers.add(*methods)
+            headers.add(*header)
+        else:
+            headers = Headers([origin, methods,header])
+        kwargs['headers'] = headers
+        return super().__init__(response, **kwargs)
 
 app = Flask(__name__)
-
-
-
+app.response_class = MyResponse
 
 @app.route('/')
 @app.route('/index/')
@@ -34,12 +51,14 @@ def register():
     user = entities.User(username, number, password)
 
     result = register_process(user, identity)
-    response = entities.Response(True, "")
+    response = entities.ResponseClass(True, "")
 
     response.msg = result[0]
     response.isSuccess = result[1]
 
-    return str(utility.class_2_dict(response))
+    result = json.dumps(utility.class_2_dict(response), sort_keys=True, indent=4, separators=(',', ':'),ensure_ascii=False).encode('utf8')
+
+    return result
 
 
 @app.route('/login', methods=['POST'])
@@ -50,12 +69,14 @@ def login():
     identity = request.json.get("identity")
 
     result = login_process(number, password, identity)
-    response = entities.Response(True, "")
+    response = entities.ResponseClass(True, "")
 
     response.msg = result[0]
     response.isSuccess = result[1]
 
-    return str(utility.class_2_dict(response))
+    result = json.dumps(utility.class_2_dict(response),sort_keys=True, indent=4, separators=(',', ':'), ensure_ascii=False).encode('utf8')
+
+    return result
 
 
 @app.route('/update/', methods=['POST'])
@@ -70,7 +91,7 @@ def update():
 
 
 def main():
-    app.run(host='127.0.0.1', port=8080, debug=True)
+    app.run(host='45.77.190.232', port=8080, debug=True)
 
 
 if __name__ == '__main__':

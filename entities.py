@@ -10,7 +10,7 @@ class User:
         self.password = password
 
 
-class Response:
+class ResponseClass:
     def __init__(self, isSuccess, msg):
         self.isSuccess = isSuccess
         self.msg = msg
