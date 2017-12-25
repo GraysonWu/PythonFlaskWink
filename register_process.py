@@ -10,7 +10,6 @@ from passlib.hash import sha256_crypt
 
 
 def register_process(user, identity):
-
     # user password 加密
     user.password = sha256_crypt.hash(user.password)
 

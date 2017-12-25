@@ -2,17 +2,21 @@
 # -*- coding: utf-8 -*-
 # __author__ = "Jeako_Wu"
 
-from flask import Flask, request, Response
+from flask import Flask, request, Response, redirect, url_for
 
 import entities
 import utility
 import json
 
 from hd_base import require
+
 from register_process import register_process
-from login_process import  login_process
+from login_process import login_process
 from update_userinfo_process import update_process
+from homedisplay import home_display
+
 from werkzeug.datastructures import Headers
+from werkzeug import secure_filename
 
 class MyResponse(Response):
     def __init__(self, response=None, **kwargs):
@@ -31,8 +35,14 @@ class MyResponse(Response):
         kwargs['headers'] = headers
         return super().__init__(response, **kwargs)
 
+
+UPLOAD_FOLDER = '/path/to/the/uploads'
+ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
+
+
 app = Flask(__name__)
 app.response_class = MyResponse
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route('/')
 @app.route('/index/')
@@ -90,9 +100,28 @@ def update():
     return update_process(user)
 
 
-def main():
-    app.run(host='45.77.190.232', port=8080, debug=True)
+@app.route('/homedisplay',methods=['GET'])
+def homedisplay():
 
+    result = home_display()
+    response = json.dumps(result, sort_keys=True, indent=4, separators=(',', ':'),
+                        ensure_ascii=False).encode('utf8')
+    return response
+
+@app.route('/upload', methods=['GET', 'POST'])
+def upload():
+    if request.method == 'POST':
+        file = request.files['file']
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            return redirect(url_for('uploaded_file',
+                                    filename=filename))
+    return "Success"
+
+def main():
+    # app.run(host='45.77.190.232', port=8080, debug=True)
+    app.run(host='127.0.0.1', port=8080, debug=True)
 
 if __name__ == '__main__':
     main()
