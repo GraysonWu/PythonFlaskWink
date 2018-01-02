@@ -32,8 +32,13 @@ def home_display():
                 dict_commo = {}
                 dict_commo["id"] = row[0]
                 dict_commo["name"] = row[1]
-                dict_commo["pic_path"] = row[2]
+                # file = open(row[2], 'r')
+                # base = file.read()
+                # file.close()
+                # dict_commo["base64"] = base
+
                 result.append(dict_commo)
+                break
             # 关闭数据库连接
             db.close()
 

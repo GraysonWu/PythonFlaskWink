@@ -7,23 +7,6 @@ CREATE TABLE customer(id INT(20) AUTO_INCREMENT PRIMARY KEY ,number VARCHAR(20) 
 CREATE TABLE vendor(id INT(20) AUTO_INCREMENT PRIMARY KEY ,number VARCHAR(20)  UNIQUE, username VARCHAR(100)  UNIQUE, password VARCHAR(100),register_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP)DEFAULT CHARSET=utf8;
 
 CREATE TABLE commodity(id INT(20) PRIMARY KEY ,name VARCHAR(50),info VARCHAR(255), pic_path VARCHAR(50),ingredient VARCHAR(50),feature VARCHAR(50),manufacture VARCHAR(50),price VARCHAR(50))DEFAULT CHARSET=utf8;
-
-/*
- Navicat Premium Data Transfer
-
- Source Server         : Local
- Source Server Type    : MySQL
- Source Server Version : 50720
- Source Host           : localhost:3306
- Source Schema         : flaskTest
-
- Target Server Type    : MySQL
- Target Server Version : 50720
- File Encoding         : 65001
-
- Date: 25/12/2017 16:25:36
-*/
-
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
@@ -47,21 +30,20 @@ CREATE TABLE `commodity` (
 -- Records of commodity
 -- ----------------------------
 BEGIN;
-INSERT INTO `commodity` VALUES (1, '长纤人造毛', 'hhhh', '/home/pic', 'hah', '美滋滋', 'jeako', '111');
-INSERT INTO `commodity` VALUES (2, '抗起球羊毛包芯纱', 'hhhh', '/home/pic', 'haha ', 'mei', 'jeako', '222');
-INSERT INTO `commodity` VALUES (3, '羊毛马海毛', 'hhh', '7', 'j', 'j', 'j', 'j');
-INSERT INTO `commodity` VALUES (4, '抗起球冰爽丝', 'jj', '6', 'j', 'j', 'j', 'j');
-INSERT INTO `commodity` VALUES (5, '有色丝光棉', 'jj', '5', 'j', 'j', 'j', 'j');
-INSERT INTO `commodity` VALUES (6, '有色棉纱', 'j', '4', 'j', 'j', 'j', 'j');
-INSERT INTO `commodity` VALUES (7, '仿亚麻', 'jj', '3', 'j', 'j', 'j', 'j');
-INSERT INTO `commodity` VALUES (8, '有色双曲', 'jj', '2', 'j', 'j', 'j', 'j');
-INSERT INTO `commodity` VALUES (9, '有色晴棉', 'j', '1j', 'j', 'j', 'j', 'j');
-INSERT INTO `commodity` VALUES (10, '拉架', 'hh', 'hhh', 'hh', 'hh', 'h', 'h');
+INSERT INTO `commodity` VALUES (1, '长纤人造毛', 'hhhh', '/root/textile_land/home_icon/type_1.txt', 'hah', '美滋滋', 'jeako', '111');
+INSERT INTO `commodity` VALUES (2, '抗起球羊毛包芯纱', 'hhhh', '/root/textile_land/home_icon/type_2.txt', 'haha ', 'mei', 'jeako', '222');
+INSERT INTO `commodity` VALUES (3, '羊毛马海毛', 'hhh', '/root/textile_land/home_icon/type_3.txt', 'j', 'j', 'j', 'j');
+INSERT INTO `commodity` VALUES (4, '抗起球冰爽丝', 'jj', '/root/textile_land/home_icon/type_4.txt', 'j', 'j', 'j', 'j');
+INSERT INTO `commodity` VALUES (5, '有色丝光棉', 'jj', '/root/textile_land/home_icon/type_5.txt', 'j', 'j', 'j', 'j');
+INSERT INTO `commodity` VALUES (6, '有色棉纱', 'j', '/root/textile_land/home_icon/type_6.txt', 'j', 'j', 'j', 'j');
+INSERT INTO `commodity` VALUES (7, '仿亚麻', 'jj', '/root/textile_land/home_icon/type_7.txt', 'j', 'j', 'j', 'j');
+INSERT INTO `commodity` VALUES (8, '有色双曲', 'jj', '/root/textile_land/home_icon/type_8.txt', 'j', 'j', 'j', 'j');
+INSERT INTO `commodity` VALUES (9, '有色晴棉', 'j', '/root/textile_land/home_icon/type_9.txt', 'j', 'j', 'j', 'j');
+INSERT INTO `commodity` VALUES (10, '拉架', 'hh', '/root/textile_land/home_icon/type_10.txt', 'hh', 'hh', 'h', 'h');
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;
 
-
-CREATE TABLE provide(id INT(20) AUTO_INCREMENT PRIMARY KEY,vendor VARCHAR(20), spec VARCHAR(50), commodity_id INT(20), price VARCHAR(50))DEFAULT CHARSET=utf8;
+CREATE TABLE provide(id INT(20) AUTO_INCREMENT PRIMARY KEY,vendor VARCHAR(20), spec VARCHAR(50), commodity_id INT(20), price VARCHAR(50), pdf_path VARCHAR (100))DEFAULT CHARSET=utf8;
 
 CREATE TABLE record(id INT(20) AUTO_INCREMENT PRIMARY KEY,costumer VARCHAR(20), provider_id INT(20), amount INT(20), order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP)DEFAULT CHARSET=utf8;
