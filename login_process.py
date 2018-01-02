@@ -17,7 +17,7 @@ def login_process(number, password, identity):
         cursor = db.cursor()
 
         # 查询字段
-        key = ["password"]
+        key = ["password","username"]
 
         # 查询条件
         condition = {'number': number}
@@ -44,14 +44,14 @@ def login_process(number, password, identity):
 
             if password_verified:
 
-                return "登录成功", True
+                return "登录成功", True , result[1]
 
             else:
 
-                return "密码错误", False
+                return "密码错误", False , "null"
 
         else:
-            return "用户不存在，请先注册", False
+            return "用户不存在，请先注册", False , "null"
 
 
     except:

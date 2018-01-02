@@ -61,7 +61,7 @@ def register():
     user = entities.User(username, number, password)
 
     result = register_process(user, identity)
-    response = entities.ResponseClass(True, "")
+    response = entities.ResponseClass(True, "" ,"null")
 
     response.msg = result[0]
     response.isSuccess = result[1]
@@ -79,10 +79,11 @@ def login():
     identity = request.json.get("identity")
 
     result = login_process(number, password, identity)
-    response = entities.ResponseClass(True, "")
+    response = entities.ResponseClass(True, "", "null")
 
     response.msg = result[0]
     response.isSuccess = result[1]
+    response.info = result[2]
 
     result = json.dumps(utility.class_2_dict(response),sort_keys=True, indent=4, separators=(',', ':'), ensure_ascii=False).encode('utf8')
 
