@@ -13,8 +13,10 @@ from hd_base import require
 from register_process import register_process
 from login_process import login_process
 from update_userinfo_process import update_process
-from homedisplay import home_display
+from home_commodity import home_commodity
 from commodity_detail import commodity_detail
+from home_store import home_store
+
 from werkzeug.datastructures import Headers
 
 class MyResponse(Response):
@@ -90,11 +92,10 @@ def login():
 
 
 @app.route('/home/commodity',methods=['GET'])
-def homedisplay():
+def homecommodity():
 
-    query = home_display()
-    list = []
-    response = entities.ResponseClass(True, "", list)
+    query = home_commodity()
+    response = entities.ResponseClass(True, "", "null")
 
     response.isSuccess = query[0]
     response.msg = query[1]
@@ -102,6 +103,18 @@ def homedisplay():
     result = json.dumps(utility.class_2_dict(response), sort_keys=True, indent=4, separators=(',', ':'),ensure_ascii=False).encode('utf8')
     return result
 
+
+@app.route('/home/store',methods=['GET'])
+def homestore():
+
+    query = home_store()
+    response = entities.ResponseClass(True, "", "null")
+
+    response.isSuccess = query[0]
+    response.msg = query[1]
+    response.data = query[2]
+    result = json.dumps(utility.class_2_dict(response), sort_keys=True, indent=4, separators=(',', ':'),ensure_ascii=False).encode('utf8')
+    return result
 
 
 @app.route('/product/detail',methods=['GET'])
@@ -119,7 +132,7 @@ def per_commodity():
     return result
 def main():
     # app.run(host='45.77.190.232', port=5000, debug=True)
-    app.run(host='127.0.0.1', port=8080, debug=True)
+    app.run(debug=True)
 
 if __name__ == '__main__':
     main()

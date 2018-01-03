@@ -16,10 +16,3 @@ class ResponseClass:
         self.msg = msg
         self.data = data
 
-
-class Commodity:
-    def __init__(self, name , category, price ):
-        self.name = name
-        self.category = category
-        self.price = price
-

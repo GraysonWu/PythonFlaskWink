@@ -53,5 +53,5 @@ def register_process(user, identity):
 
         return "注册成功", True
     except:
-        return "Unable to connect to DB"
+        return "Unable to connect to DB", False
 
