@@ -38,11 +38,11 @@ def home_display():
                 # dict_commo["base64"] = base
 
                 result.append(dict_commo)
-                break
+
             # 关闭数据库连接
             db.close()
 
-            return result
+            return True, "查询所有商品名称和ID成功", result
 
         else:
             return "查询失败"

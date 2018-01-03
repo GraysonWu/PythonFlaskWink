@@ -89,25 +89,19 @@ def login():
     return result
 
 
-@app.route('/homedisplay',methods=['GET'])
+@app.route('/home/commodity',methods=['GET'])
 def homedisplay():
 
-    result = home_display()
-    response = json.dumps(result, sort_keys=True, indent=4, separators=(',', ':'),
-                        ensure_ascii=False).encode('utf8')
-    return response
+    query = home_display()
+    list = []
+    response = entities.ResponseClass(True, "", list)
 
+    response.isSuccess = query[0]
+    response.msg = query[1]
+    response.data = query[2]
+    result = json.dumps(utility.class_2_dict(response), sort_keys=True, indent=4, separators=(',', ':'),ensure_ascii=False).encode('utf8')
+    return result
 
-@app.route('/upload', methods=['GET', 'POST'])
-def upload():
-    if request.method == 'POST':
-        file = request.files['file']
-        if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            return redirect(url_for('uploaded_file',
-                                    filename=filename))
-    return "Success"
 
 
 @app.route('/product/detail',methods=['GET'])
@@ -115,9 +109,14 @@ def per_commodity():
     id = request.args.get('id')
 
     result = commodity_detail(id)
-    response = json.dumps(result, sort_keys=True, indent=4, separators=(',', ':'),
+    response = entities.ResponseClass(True, "", "null")
+
+    response.isSuccess = result[0]
+    response.msg = result[1]
+    response.data = result[2]
+    result = json.dumps(utility.class_2_dict(response), sort_keys=True, indent=4, separators=(',', ':'),
                         ensure_ascii=False).encode('utf8')
-    return response
+    return result
 def main():
     # app.run(host='45.77.190.232', port=5000, debug=True)
     app.run(host='127.0.0.1', port=8080, debug=True)

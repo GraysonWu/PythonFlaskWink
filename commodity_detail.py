@@ -102,10 +102,10 @@ def commodity_detail(id):
             # 关闭数据库连接
             db.close()
 
-            return dict_commo
+            return True, "获取商品信息成功" ,dict_commo
 
         else:
-            return "查询失败"
+            return False, "获取商品信息失败", "null"
 
 
     except:
