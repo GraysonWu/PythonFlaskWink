@@ -5,7 +5,7 @@ import sql
 import pymysql
 
 
-def home_display():
+def home_store():
     try:
         # 打开数据库连接
         db = pymysql.connect("localhost", "root", "wujiahao.", "flaskTest",charset='utf8')
@@ -14,13 +14,13 @@ def home_display():
         cursor = db.cursor()
 
         # 查询字段
-        key = ['id', 'name', 'pic_path']
+        key = ['id', 'company_name', 'company_address' , 'main_product']
 
         # 查询条件
         condition = {}
 
         # 生成SQL语句
-        query = sql.select("commodity", key, condition, 0)
+        query = sql.select("vendor", key, condition, 0)
 
         # 使用execute方法执行SQL语句
         if cursor.execute(query):
@@ -32,21 +32,19 @@ def home_display():
                 dict_commo = {}
                 dict_commo["id"] = row[0]
                 dict_commo["name"] = row[1]
-                # file = open(row[2], 'r')
-                # base = file.read()
-                # file.close()
-                # dict_commo["base64"] = base
+                dict_commo["address"] = row[2]
+                dict_commo["star"] = row[3]
 
                 result.append(dict_commo)
 
             # 关闭数据库连接
             db.close()
 
-            return True, "查询所有商品名称和ID成功", result
+            return True, "获取入驻商家成功", result
 
         else:
-            return "查询失败"
+            return False, "查询失败", "null"
 
 
     except:
-        return "无法连接数据库"
+        return False, "无法连接数据库" , "null"

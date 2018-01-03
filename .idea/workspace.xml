@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f7eaf21-625b-428d-a264-d8ab8d25316c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db_link.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/home_store.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/homedisplay.py" afterPath="$PROJECT_DIR$/home_commodity.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/commodity_detail.py" afterPath="$PROJECT_DIR$/commodity_detail.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/entities.py" afterPath="$PROJECT_DIR$/entities.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/login_process.py" afterPath="$PROJECT_DIR$/login_process.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/register_process.py" afterPath="$PROJECT_DIR$/register_process.py" />
     </list>
     <ignored path="PythonFlaskWink.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -17,7 +21,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/PythonFlaskWink$main.coverage" NAME="main Coverage Results" MODIFIED="1514967316268" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/PythonFlaskWink$main.coverage" NAME="main Coverage Results" MODIFIED="1514970201834" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -36,14 +40,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1316">
-              <caret line="122" column="0" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
+            <state relative-caret-position="594">
+              <caret line="107" column="16" selection-start-line="107" selection-start-column="16" selection-end-line="107" selection-end-column="16" />
               <folding>
                 <element signature="e#71#132#0" expanded="true" />
-                <element signature="e#557#1140#0" expanded="false" />
+                <element signature="e#597#1180#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home_commodity.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/home_commodity.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1683">
+              <caret line="51" column="38" selection-start-line="51" selection-start-column="38" selection-end-line="51" selection-end-column="38" />
+              <folding>
+                <element signature="e#70#80#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home_store.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/home_store.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="392">
+              <caret line="29" column="23" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
+              <folding>
+                <element signature="e#70#80#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -61,18 +89,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="homedisplay.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/homedisplay.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="792">
-              <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-              <folding>
-                <element signature="e#70#80#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="db" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db">
           <provider selected="true" editor-type-id="text-editor">
@@ -83,46 +99,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="hd_base.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hd_base.py">
+      <file leaf-file-name="register_process.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/register_process.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-              <folding>
-                <element signature="e#70#104#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="854">
+              <caret line="55" column="47" selection-start-line="55" selection-start-column="47" selection-end-line="55" selection-end-column="47" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="commodity_detail.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="commodity_detail.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/commodity_detail.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="serving.py" pinned="false" current-in-tab="false">
-        <entry file="file:///usr/local/lib/python3.6/site-packages/werkzeug/serving.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="719" column="0" selection-start-line="719" selection-start-column="0" selection-end-line="719" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sql.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sql.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
+            <state relative-caret-position="825">
+              <caret line="25" column="58" selection-start-line="25" selection-start-column="58" selection-end-line="25" selection-end-column="58" />
               <folding>
-                <marker date="1512619546616" expanded="true" signature="220:238" ph="INSERT INTO missing_value... " />
-                <marker date="1512619546616" expanded="true" signature="1194:1207" ph="delete from " />
+                <element signature="e#70#80#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -141,8 +134,8 @@
       <file leaf-file-name="entities.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/entities.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
-              <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+            <state relative-caret-position="594">
+              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -177,14 +170,16 @@
         <option value="$PROJECT_DIR$/ha.py" />
         <option value="$PROJECT_DIR$/handler.hd_base.py" />
         <option value="$PROJECT_DIR$/update_userinfo_process.py" />
-        <option value="$PROJECT_DIR$/register_process.py" />
-        <option value="$PROJECT_DIR$/login_process.py" />
-        <option value="$PROJECT_DIR$/entities.py" />
         <option value="$PROJECT_DIR$/db" />
         <option value="$PROJECT_DIR$/homedisplay.py" />
-        <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/db_link.py" />
         <option value="$PROJECT_DIR$/commodity_detail.py" />
+        <option value="$PROJECT_DIR$/entities.py" />
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/home_commodity.py" />
+        <option value="$PROJECT_DIR$/login_process.py" />
+        <option value="$PROJECT_DIR$/register_process.py" />
+        <option value="$PROJECT_DIR$/home_store.py" />
       </list>
     </option>
   </component>
@@ -802,7 +797,14 @@
       <option name="project" value="LOCAL" />
       <updated>1514967984529</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="db link">
+      <created>1514968528403</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1514968528403</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TodoView">
@@ -870,7 +872,8 @@
     <MESSAGE value="db record insert" />
     <MESSAGE value="commodity_detail" />
     <MESSAGE value="bug fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug fix" />
+    <MESSAGE value="db link" />
+    <option name="LAST_COMMIT_MESSAGE" value="db link" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -890,14 +893,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/db">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2046">
-          <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hd_base.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
@@ -961,7 +956,7 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#71#132#0" expanded="true" />
-            <element signature="e#557#1140#0" expanded="false" />
+            <element signature="e#597#1180#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1036,7 +1031,7 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#71#132#0" expanded="true" />
-            <element signature="e#557#1140#0" expanded="false" />
+            <element signature="e#597#1180#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1101,7 +1096,7 @@
           <caret line="50" column="20" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="20" />
           <folding>
             <element signature="e#71#132#0" expanded="true" />
-            <element signature="e#557#1140#0" expanded="false" />
+            <element signature="e#597#1180#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1166,7 +1161,7 @@
           <caret line="24" column="35" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
           <folding>
             <element signature="e#71#132#0" expanded="true" />
-            <element signature="e#557#1140#0" expanded="false" />
+            <element signature="e#597#1180#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1216,7 +1211,7 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#71#132#0" expanded="true" />
-            <element signature="e#557#1140#0" expanded="false" />
+            <element signature="e#597#1180#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1266,39 +1261,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/entities.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/utility.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
           <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/register_process.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-264">
-          <caret line="11" column="37" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
-          <folding>
-            <element signature="e#72#86#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/login_process.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="557">
-          <caret line="39" column="22" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
-          <folding>
-            <element signature="e#71#81#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1312,14 +1279,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/local/lib/python3.6/site-packages/werkzeug/serving.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="719" column="0" selection-start-line="719" selection-start-column="0" selection-end-line="719" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="695">
@@ -1328,24 +1287,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/homedisplay.py">
+    <entry file="file:///usr/local/lib/python3.6/site-packages/werkzeug/serving.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="792">
-          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+        <state relative-caret-position="281">
+          <caret line="719" column="0" selection-start-line="719" selection-start-column="0" selection-end-line="719" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/entities.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commodity_detail.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="825">
+          <caret line="25" column="58" selection-start-line="25" selection-start-column="58" selection-end-line="25" selection-end-column="58" />
           <folding>
             <element signature="e#70#80#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
+    <entry file="file://$PROJECT_DIR$/home_commodity.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1316">
-          <caret line="122" column="0" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
+        <state relative-caret-position="1683">
+          <caret line="51" column="38" selection-start-line="51" selection-start-column="38" selection-end-line="51" selection-end-column="38" />
           <folding>
-            <element signature="e#71#132#0" expanded="true" />
-            <element signature="e#557#1140#0" expanded="false" />
+            <element signature="e#70#80#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login_process.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1844">
+          <caret line="58" column="54" selection-start-line="58" selection-start-column="54" selection-end-line="58" selection-end-column="54" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1359,11 +1341,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/commodity_detail.py">
+    <entry file="file://$PROJECT_DIR$/register_process.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        <state relative-caret-position="854">
+          <caret line="55" column="47" selection-start-line="55" selection-start-column="47" selection-end-line="55" selection-end-column="47" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home_store.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="29" column="23" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
+          <folding>
+            <element signature="e#70#80#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="107" column="16" selection-start-line="107" selection-start-column="16" selection-end-line="107" selection-end-column="16" />
+          <folding>
+            <element signature="e#71#132#0" expanded="true" />
+            <element signature="e#597#1180#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
