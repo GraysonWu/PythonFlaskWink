@@ -32,16 +32,16 @@ CREATE TABLE `commodity` (
 -- Records of commodity
 -- ----------------------------
 BEGIN;
-INSERT INTO `commodity` VALUES (1, '长纤人造毛', 'hhhh', '/root/textile_land/home_icon/type_1.txt', 'hah', '美滋滋', 'jeako', '111');
-INSERT INTO `commodity` VALUES (2, '抗起球羊毛包芯纱', 'hhhh', '/root/textile_land/home_icon/type_2.txt', 'haha ', 'mei', 'jeako', '222');
-INSERT INTO `commodity` VALUES (3, '羊毛马海毛', 'hhh', '/root/textile_land/home_icon/type_3.txt', 'j', 'j', 'j', 'j');
-INSERT INTO `commodity` VALUES (4, '抗起球冰爽丝', 'jj', '/root/textile_land/home_icon/type_4.txt', 'j', 'j', 'j', 'j');
-INSERT INTO `commodity` VALUES (5, '有色丝光棉', 'jj', '/root/textile_land/home_icon/type_5.txt', 'j', 'j', 'j', 'j');
-INSERT INTO `commodity` VALUES (6, '有色棉纱', 'j', '/root/textile_land/home_icon/type_6.txt', 'j', 'j', 'j', 'j');
-INSERT INTO `commodity` VALUES (7, '仿亚麻', 'jj', '/root/textile_land/home_icon/type_7.txt', 'j', 'j', 'j', 'j');
-INSERT INTO `commodity` VALUES (8, '有色双曲', 'jj', '/root/textile_land/home_icon/type_8.txt', 'j', 'j', 'j', 'j');
-INSERT INTO `commodity` VALUES (9, '有色晴棉', 'j', '/root/textile_land/home_icon/type_9.txt', 'j', 'j', 'j', 'j');
-INSERT INTO `commodity` VALUES (10, '拉架', 'hh', '/root/textile_land/home_icon/type_10.txt', 'hh', 'hh', 'h', 'h');
+INSERT INTO `commodity` VALUES (1, '长纤人造毛', '仿羊绒，是由晴纶经过特殊的工艺处理，使腈纶具有天然羊绒那种平滑、柔软，而富有弹性的手感，同时具有晴纶优良的染色性能的毛线。仿羊绒腈纶的纺丝、毛条的制造技术国内尚属首创。仿羊绒腈纶其独特的功能是膨松性和柔软性。', '/root/textile_land/home_icon/type_1.txt', '100%Acrylic', '平滑、柔软，而富有弹性。', '由腈纶经过特殊的工艺处理。', '111');
+INSERT INTO `commodity` VALUES (2, '抗起球羊毛包芯纱', '包芯纱又称复合纱或包覆纱，它是由两种或两种以上的纤维组合而成的一种新型纱线。最初的包芯纱是以棉纤维为皮、涤纶短纤纱为芯开发的短纤维与短纤维包芯纱。新珠线带涤包涤包芯线。', '/root/textile_land/home_icon/type_2.txt', '以一种材质原料（纱线）包覆另一种材质原料（纱线）', '透气性好、吸温性好、弹性高、稳定性好', '粗梳流程和精梳流程。', '222');
+INSERT INTO `commodity` VALUES (3, '羊毛马海毛', '安哥拉山羊的毛，又称为安哥拉山羊毛，是光泽很强的长山羊毛的典型，属特种动物毛。“马海”一词来源于阿拉伯文，意为“似蚕丝的山羊毛织物”，后来成为安哥拉山羊毛的专称。', '/root/textile_land/home_icon/type_3.txt', '安哥拉山羊毛', '坚牢度高，耐用性好，不毡化，不起毛起球，沾污后易清洁。', '剪毛、分级洗毛、粗梳、精梳、纺纱、编织以及缝合、后整。', '11');
+INSERT INTO `commodity` VALUES (4, '抗起球冰爽丝', '一般的吸湿排汗纤维，具有特殊十字形断面，能将皮肤表层的湿气及汗水快速吸收并传输扩散至衣料表面，即使在潮湿的环境中，亦能保持皮肤干爽及愉悦心情。而高条数的十字形断面，更可以提升织物功能性与舒适质感。', '/root/textile_land/home_icon/type_4.txt', '粘胶纤维', '具有粘胶的冰爽透气吸湿排汗功能，又有涤纶的稳定和强度的新型纤维。', '经加工成纺丝原液，再经湿法纺丝制成。', '22');
+INSERT INTO `commodity` VALUES (5, '有色丝光棉', '丝光棉又名“冰丝棉”，经精纺制成高织纱，再经烧毛、丝光等特殊的加工工序，制成光洁亮丽、柔软抗皱的高品质丝光纱线。以这种原料制成的高品质针织面料，不仅完全保留了原棉优良的天然特性，而且具有丝一般的光泽，织物手感柔软。', '/root/textile_land/home_icon/type_5.txt', '棉花、棉纤维', '轻薄，柔软，舒适，不刺激皮肤', '棉花纺纱→精梳→纱线烧毛→纱线丝光→纱线绞染→固色、柔软、倒绞。', '22');
+INSERT INTO `commodity` VALUES (6, '有色棉纱', '棉纱是棉纤维经纺纱工艺加工而成的纱，经合股加工后称为棉线。 根据纺纱的不同工艺，可分为普梳纱和精梳纱。', '/root/textile_land/home_icon/type_6.txt', '棉花、涤纶、粘胶', '结杂少、光泽好、条干匀、强力高。', '配棉→开清棉→梳棉→并条→粗纱→细纱→落筒（分人工络筒和自动络筒两种）→成品检验。', '33');
+INSERT INTO `commodity` VALUES (7, '仿亚麻', '该织物以（150D阳离子+150D DTY)网300D舞龙丝*2为原料，采用细平纹组织按9.5*2*18规格，在剑杆织机上织造而成。染整工艺应用“环保型直染”，使其具有亚麻风格、服用性佳等独有优势，备受赶时髦女性的钟爱。', '/root/textile_land/home_icon/type_7.txt', '涤纶纤维', '调温、抗过敏、防静电', '成条→预并→三道或四道并条→粗纱→湿纺环锭细纱→摇纱→漂纱→脱水→开纱。', '33');
+INSERT INTO `commodity` VALUES (8, '有色双曲', '通常会把双曲纱叫做双股，双股属于弹性织物，依然保持双曲纱的特性。', '/root/textile_land/home_icon/type_8.txt', '有色人造丝、尼龙、拉架', '具有较大的延伸性、耐热、耐腐、着色好、柔感性强。', '1根纱织14针，或1根纱加1根超细锦纶丝织12针。', '11');
+INSERT INTO `commodity` VALUES (9, '有色晴棉', '腈纶是聚丙烯腈纤维在我国的商品名。腈纶具有优良的性能，由于其性质接近羊毛，故有“合成羊毛”之称。', '/root/textile_land/home_icon/type_9.txt', '石油裂解副产的廉价丙烯', '蓬松性好、保暖性好，手感柔软。', '采用溶液纺丝的方法。', '22');
+INSERT INTO `commodity` VALUES (10, '拉架', '也称拉架棉，是氨纶中的一种，氨纶包括：弹性纤维、莱卡（拉卡）、拉架、斯潘德克斯。', '/root/textile_land/home_icon/type_10.txt', '氨纶', '伸阔性大、保型性好，而且不起皱。', '使用特殊装置拉架辘。', '22');
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;

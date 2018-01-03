@@ -16,7 +16,6 @@ from update_userinfo_process import update_process
 from homedisplay import home_display
 
 from werkzeug.datastructures import Headers
-from werkzeug import secure_filename
 
 class MyResponse(Response):
     def __init__(self, response=None, **kwargs):
@@ -90,17 +89,6 @@ def login():
     return result
 
 
-@app.route('/update/', methods=['POST'])
-@require('name', 'phone_number', 'password')
-def update():
-    name = request.json.get("name")
-    password = request.json.get("password")
-    phone_number = request.json.get("phone_number")
-
-    user = entities.User(name, phone_number, password)
-    return update_process(user)
-
-
 @app.route('/homedisplay',methods=['GET'])
 def homedisplay():
 
@@ -108,6 +96,7 @@ def homedisplay():
     response = json.dumps(result, sort_keys=True, indent=4, separators=(',', ':'),
                         ensure_ascii=False).encode('utf8')
     return response
+
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload():
@@ -119,6 +108,7 @@ def upload():
             return redirect(url_for('uploaded_file',
                                     filename=filename))
     return "Success"
+
 
 def main():
     app.run(host='45.77.190.232', port=5000, debug=True)
