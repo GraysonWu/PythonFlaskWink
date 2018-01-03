@@ -12,9 +12,6 @@ CREATE TABLE commodity(id INT(20) PRIMARY KEY ,name VARCHAR(50),info VARCHAR(255
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
--- ----------------------------
--- Table structure for commodity
--- ----------------------------
 DROP TABLE IF EXISTS `commodity`;
 CREATE TABLE `commodity` (
   `id` int(20) NOT NULL,
@@ -28,9 +25,6 @@ CREATE TABLE `commodity` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Records of commodity
--- ----------------------------
 BEGIN;
 INSERT INTO `commodity` VALUES (1, '长纤人造毛', '仿羊绒，是由晴纶经过特殊的工艺处理，使腈纶具有天然羊绒那种平滑、柔软，而富有弹性的手感，同时具有晴纶优良的染色性能的毛线。仿羊绒腈纶的纺丝、毛条的制造技术国内尚属首创。仿羊绒腈纶其独特的功能是膨松性和柔软性。', '/root/textile_land/home_icon/type_1.txt', '100%Acrylic', '平滑、柔软，而富有弹性。', '由腈纶经过特殊的工艺处理。', '111');
 INSERT INTO `commodity` VALUES (2, '抗起球羊毛包芯纱', '包芯纱又称复合纱或包覆纱，它是由两种或两种以上的纤维组合而成的一种新型纱线。最初的包芯纱是以棉纤维为皮、涤纶短纤纱为芯开发的短纤维与短纤维包芯纱。新珠线带涤包涤包芯线。', '/root/textile_land/home_icon/type_2.txt', '以一种材质原料（纱线）包覆另一种材质原料（纱线）', '透气性好、吸温性好、弹性高、稳定性好', '粗梳流程和精梳流程。', '222');
@@ -47,6 +41,6 @@ COMMIT;
 SET FOREIGN_KEY_CHECKS = 1;
 
 
-CREATE TABLE provide(id INT(20) AUTO_INCREMENT PRIMARY KEY,vendor VARCHAR(20), spec VARCHAR(50), commodity_id INT(20), price VARCHAR(50), pdf_path VARCHAR (100))DEFAULT CHARSET=utf8;
+CREATE TABLE provide(id INT(20) AUTO_INCREMENT PRIMARY KEY,company VARCHAR(20), spec VARCHAR(50), commodity_id INT(20), price VARCHAR(50), pdf_path VARCHAR (100))DEFAULT CHARSET=utf8;
 
 CREATE TABLE record(id INT(20) AUTO_INCREMENT PRIMARY KEY,costumer VARCHAR(20), provider_id INT(20), amount INT(20), total_price VARCHAR(20), color VARCHAR(20),status VARCHAR(20),  order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP)DEFAULT CHARSET=utf8;

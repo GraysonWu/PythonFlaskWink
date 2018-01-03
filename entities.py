@@ -11,10 +11,10 @@ class User:
 
 
 class ResponseClass:
-    def __init__(self, isSuccess, msg, info):
+    def __init__(self, isSuccess, msg, data):
         self.isSuccess = isSuccess
         self.msg = msg
-        self.info = info
+        self.data = data
 
 
 class Commodity:

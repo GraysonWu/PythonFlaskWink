@@ -14,7 +14,7 @@ from register_process import register_process
 from login_process import login_process
 from update_userinfo_process import update_process
 from homedisplay import home_display
-
+from commodity_detail import commodity_detail
 from werkzeug.datastructures import Headers
 
 class MyResponse(Response):
@@ -82,7 +82,7 @@ def login():
 
     response.msg = result[0]
     response.isSuccess = result[1]
-    response.info = result[2]
+    response.data = result[2]
 
     result = json.dumps(utility.class_2_dict(response),sort_keys=True, indent=4, separators=(',', ':'), ensure_ascii=False).encode('utf8')
 
@@ -110,9 +110,17 @@ def upload():
     return "Success"
 
 
+@app.route('/product/detail',methods=['GET'])
+def per_commodity():
+    id = request.args.get('id')
+
+    result = commodity_detail(id)
+    response = json.dumps(result, sort_keys=True, indent=4, separators=(',', ':'),
+                        ensure_ascii=False).encode('utf8')
+    return response
 def main():
-    app.run(host='45.77.190.232', port=5000, debug=True)
-    # app.run(host='127.0.0.1', port=8080, debug=True)
+    # app.run(host='45.77.190.232', port=5000, debug=True)
+    app.run(host='127.0.0.1', port=8080, debug=True)
 
 if __name__ == '__main__':
     main()
