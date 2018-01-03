@@ -4,60 +4,8 @@
 import sql
 import pymysql
 
-def company_name2vendor(company_name):
-    try:
-        # 打开数据库连接
-        db_comname2vendor = pymysql.connect("localhost", "root", "wujiahao.", "flaskTest",charset='utf8')
-
-        # 使用cursor()方法获取操作游标
-        cursor_comname2vendor = db_comname2vendor.cursor()
-
-        result = {}
-
-        key = ['id', 'username']
-        condition = {}
-        condition['company_name'] = company_name
-
-        query = sql.select("vendor", key, condition, 0)
-
-        if cursor_comname2vendor.execute(query):
-            info = cursor_comname2vendor.fetchone()
-            result["id"] = info[0]
-            result["company_name"] = company_name
-
-        db_comname2vendor.close()
-        return result
-
-
-    except:
-        return "无法连接数据库"
-
-def commodity_id2company_name(id):
-    try:
-        # 打开数据库连接
-        db_commid2comname = pymysql.connect("localhost", "root", "wujiahao.", "flaskTest",charset='utf8')
-
-        # 使用cursor()方法获取操作游标
-        cursor_commid2comname = db_commid2comname.cursor()
-
-        stores = []
-        key = ['company']
-        condition = {}
-        condition['commodity_id'] = id
-
-        query = sql.select("provide", key, condition, 0)
-
-        if cursor_commid2comname.execute(query):
-            info = cursor_commid2comname.fetchall()
-            for row in info:
-                stores.append(row[0])
-        db_commid2comname.close()
-        return stores
-
-
-    except:
-        return "无法连接数据库"
-
+from db_link import company_name2vendor
+from db_link import commodity_id2company_name
 
 def commodity_detail(id):
     try:
