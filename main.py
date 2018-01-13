@@ -12,7 +12,6 @@ from hd_base import require
 
 from register_process import register_process
 from login_process import login_process
-from update_userinfo_process import update_process
 from home_commodity import home_commodity
 from commodity_detail import commodity_detail
 from home_store import home_store
