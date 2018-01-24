@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # __author__ = "Jeako_Wu"
 
-from flask import Flask, request, Response, redirect, url_for
+from flask import Flask, request, Response
 
 import entities
 import utility
@@ -18,6 +18,7 @@ from home_store import home_store
 
 from werkzeug.datastructures import Headers
 
+
 class MyResponse(Response):
     def __init__(self, response=None, **kwargs):
         kwargs['headers'] = ''
@@ -25,13 +26,13 @@ class MyResponse(Response):
         # 跨域控制
         origin = ('Access-Control-Allow-Origin', '*')
         methods = ('Access-Control-Allow-Methods', 'HEAD, OPTIONS, GET, POST, DELETE, PUT')
-        header = ('Access-Control-Allow-Headers','x-requested-with,content-type')
+        header = ('Access-Control-Allow-Headers', 'x-requested-with,content-type')
         if headers:
             headers.add(*origin)
             headers.add(*methods)
             headers.add(*header)
         else:
-            headers = Headers([origin, methods,header])
+            headers = Headers([origin, methods, header])
         kwargs['headers'] = headers
         return super().__init__(response, **kwargs)
 
@@ -43,6 +44,7 @@ ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 app = Flask(__name__)
 app.response_class = MyResponse
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
 
 @app.route('/')
 @app.route('/index/')
@@ -61,12 +63,13 @@ def register():
     user = entities.User(username, number, password)
 
     result = register_process(user, identity)
-    response = entities.ResponseClass(True, "" ,"null")
+    response = entities.ResponseClass(True, "", "null")
 
     response.msg = result[0]
     response.isSuccess = result[1]
 
-    result = json.dumps(utility.class_2_dict(response), sort_keys=True, indent=4, separators=(',', ':'),ensure_ascii=False).encode('utf8')
+    resp_dict = utility.class_2_dict(response)
+    result = json.dumps(resp_dict, sort_keys=True, indent=4, separators=(',', ':'), ensure_ascii=False).encode('utf8')
 
     return result
 
@@ -85,12 +88,13 @@ def login():
     response.isSuccess = result[1]
     response.data = result[2]
 
-    result = json.dumps(utility.class_2_dict(response),sort_keys=True, indent=4, separators=(',', ':'), ensure_ascii=False).encode('utf8')
+    resp_dict = utility.class_2_dict(response)
+    result = json.dumps(resp_dict, sort_keys=True, indent=4, separators=(',', ':'), ensure_ascii=False).encode('utf8')
 
     return result
 
 
-@app.route('/home/commodity',methods=['GET'])
+@app.route('/home/commodity', methods=['GET'])
 def homecommodity():
 
     query = home_commodity()
@@ -99,11 +103,13 @@ def homecommodity():
     response.isSuccess = query[0]
     response.msg = query[1]
     response.data = query[2]
-    result = json.dumps(utility.class_2_dict(response), sort_keys=True, indent=4, separators=(',', ':'),ensure_ascii=False).encode('utf8')
+
+    resp_dict = utility.class_2_dict(response)
+    result = json.dumps(resp_dict, sort_keys=True, indent=4, separators=(',', ':'), ensure_ascii=False).encode('utf8')
     return result
 
 
-@app.route('/home/store',methods=['GET'])
+@app.route('/home/store', methods=['GET'])
 def homestore():
 
     query = home_store()
@@ -112,26 +118,32 @@ def homestore():
     response.isSuccess = query[0]
     response.msg = query[1]
     response.data = query[2]
-    result = json.dumps(utility.class_2_dict(response), sort_keys=True, indent=4, separators=(',', ':'),ensure_ascii=False).encode('utf8')
+
+    resp_dict = utility.class_2_dict(response)
+    result = json.dumps(resp_dict, sort_keys=True, indent=4, separators=(',', ':'), ensure_ascii=False).encode('utf8')
     return result
 
 
-@app.route('/product/detail',methods=['GET'])
+@app.route('/product/detail', methods=['GET'])
 def per_commodity():
-    id = request.args.get('id')
+    id_get = request.args.get('id')
 
-    result = commodity_detail(id)
+    result = commodity_detail(id_get)
     response = entities.ResponseClass(True, "", "null")
 
     response.isSuccess = result[0]
     response.msg = result[1]
     response.data = result[2]
-    result = json.dumps(utility.class_2_dict(response), sort_keys=True, indent=4, separators=(',', ':'),
-                        ensure_ascii=False).encode('utf8')
+
+    resp_dict = utility.class_2_dict(response)
+    result = json.dumps(resp_dict, sort_keys=True, indent=4, separators=(',', ':'), ensure_ascii=False).encode('utf8')
     return result
+
+
 def main():
     # app.run(host='45.77.190.232', port=5000, debug=True)
     app.run(debug=True)
+
 
 if __name__ == '__main__':
     main()

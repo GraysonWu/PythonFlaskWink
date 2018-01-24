@@ -29,7 +29,7 @@ def home_store():
 
             result = []
             for row in data:
-                dict_commo = {}
+                dict_commo = dict()
                 dict_commo["id"] = row[0]
                 dict_commo["name"] = row[1]
                 dict_commo["address"] = row[2]

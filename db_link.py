@@ -4,6 +4,7 @@
 import sql
 import pymysql
 
+
 def company_name2vendor(company_name):
     try:
         # 打开数据库连接
@@ -15,7 +16,7 @@ def company_name2vendor(company_name):
         result = {}
 
         key = ['id', 'username']
-        condition = {}
+        condition = dict()
         condition['company_name'] = company_name
 
         query = sql.select("vendor", key, condition, 0)
@@ -27,10 +28,9 @@ def company_name2vendor(company_name):
 
         db.close()
         return result
-
-
     except:
         return "无法连接数据库"
+
 
 def commodity_id2company_name(id):
     try:
@@ -42,7 +42,7 @@ def commodity_id2company_name(id):
 
         stores = []
         key = ['company']
-        condition = {}
+        condition = dict()
         condition['commodity_id'] = id
 
         query = sql.select("provide", key, condition, 0)
@@ -53,7 +53,6 @@ def commodity_id2company_name(id):
                 stores.append(row[0])
         db.close()
         return stores
-
 
     except:
         return "无法连接数据库"
