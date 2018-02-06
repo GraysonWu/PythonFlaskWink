@@ -833,7 +833,14 @@
       <option name="project" value="LOCAL" />
       <updated>1517898386347</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="edit vendor info">
+      <created>1517898401496</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1517898401496</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TodoView">
@@ -905,7 +912,8 @@
     <MESSAGE value="delete rubbish" />
     <MESSAGE value="dict" />
     <MESSAGE value="basic info &amp; ifexist" />
-    <option name="LAST_COMMIT_MESSAGE" value="basic info &amp; ifexist" />
+    <MESSAGE value="edit vendor info" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit vendor info" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
