@@ -15,6 +15,7 @@ from login_process import login_process
 from home_commodity import home_commodity
 from commodity_detail import commodity_detail
 from home_store import home_store
+from vendor_op import vendor_exist, vendor_info
 
 from werkzeug.datastructures import Headers
 
@@ -140,9 +141,42 @@ def per_commodity():
     return result
 
 
+@app.route('/store/ifnew', methods=['GET'])
+def query_vendor():
+    name_get = request.args.get('name')
+
+    result = vendor_exist(name_get)
+    response = entities.ResponseClass(True, "", "null")
+
+    response.isSuccess = result[0]
+    response.msg = result[1]
+    response.data = result[2]
+
+    resp_dict = utility.class_2_dict(response)
+    result = json.dumps(resp_dict, sort_keys=True, indent=4, separators=(',', ':'), ensure_ascii=False).encode('utf8')
+    return result
+
+
+@app.route('/store/basicinfo', methods=['GET'])
+def vendorinfo():
+    name_get = request.args.get('name')
+
+    result = vendor_info(name_get)
+    response = entities.ResponseClass(True, "", "null")
+
+    response.isSuccess = result[0]
+    response.msg = result[1]
+    response.data = result[2]
+
+    resp_dict = utility.class_2_dict(response)
+    result = json.dumps(resp_dict, sort_keys=True, indent=4, separators=(',', ':'), ensure_ascii=False).encode('utf8')
+    return result
+
+
+
 def main():
     # app.run(host='45.77.190.232', port=5000, debug=True)
-    app.run(debug=True)
+    app.run(port=8080, debug=True)
 
 
 if __name__ == '__main__':
