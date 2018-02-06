@@ -94,3 +94,43 @@ def vendor_info(name_get):
     except:
         return False, "无法连接数据库" , "null"
 
+
+def vendor_edit(name_get, basicinfo):
+    try:
+        # 打开数据库连接
+        db = pymysql.connect("localhost", "root", "wujiahao.", "flaskTest", charset='utf8')
+
+        # 使用cursor()方法获取操作游标
+        cursor = db.cursor()
+
+        # 查询字段
+        value = dict()
+        value['company_name'] = basicinfo.company
+        value['company_address'] = basicinfo.address
+        value['company_number'] = basicinfo.phone
+        value['company_tax'] = basicinfo.fax
+        value['main_product'] = basicinfo.star
+        value['company_pic'] = basicinfo.pic
+
+        # 查询条件
+        condition = dict()
+        condition['username'] = name_get
+
+        # 生成SQL语句
+        query = sql.update("vendor", value, condition)
+        # 使用execute方法执行SQL语句
+        try:
+            cursor.execute(query)
+            db.commit()
+
+        except:
+            db.rollback()
+            db.close()
+            return False, "录入商家信息失败"
+
+        db.close()
+        return True, "录入商家信息成功"
+
+    except:
+        return False, "无法连接数据库" , "null"
+

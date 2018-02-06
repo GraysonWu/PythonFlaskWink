@@ -16,3 +16,12 @@ class ResponseClass:
         self.msg = msg
         self.data = data
 
+
+class Basicinfo:
+    def __init__(self, company, address, phone, fax, star, pic):
+        self.company = company
+        self.address = address
+        self.phone = phone
+        self.fax = fax
+        self.star = star
+        self.pic = pic

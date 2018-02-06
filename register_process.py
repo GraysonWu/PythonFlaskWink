@@ -45,7 +45,7 @@ def register_process(user, identity):
         except:
             # 操作失败回滚
             db.rollback()
-
+            db.close()
             return "注册失败", False
 
         # 关闭数据库连接
