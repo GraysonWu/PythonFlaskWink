@@ -3,6 +3,7 @@
 # __author__ = "Jeako_Wu"
 import sql
 import pymysql
+import utility
 from db_link import commodity_id2commodity_name
 
 
@@ -80,7 +81,7 @@ def vendor_info(name_get):
             result['phone'] = data[2]
             result['fax'] = data[3]
             result['star'] = commodity_id2commodity_name(data[4])
-            result['pic'] = data[5]
+            result['pic'] = utility.path_2_base64(data[5])
 
             return True, "获取商家基本信息成功", result
 
@@ -103,6 +104,7 @@ def vendor_edit(name_get, basicinfo):
         # 使用cursor()方法获取操作游标
         cursor = db.cursor()
 
+
         # 查询字段
         value = dict()
         value['company_name'] = basicinfo.company
@@ -110,7 +112,7 @@ def vendor_edit(name_get, basicinfo):
         value['company_number'] = basicinfo.phone
         value['company_tax'] = basicinfo.fax
         value['main_product'] = basicinfo.star
-        value['company_pic'] = basicinfo.pic
+        value['company_pic'] = utility.base64_2_path(basicinfo.pic, name_get)
 
         # 查询条件
         condition = dict()
