@@ -4,7 +4,7 @@
 import sql
 import pymysql
 
-from db_link import company_name2vendor
+from db_link import company_name2vendor_id
 from db_link import commodity_id2company_name
 
 def commodity_detail(id):
@@ -43,7 +43,7 @@ def commodity_detail(id):
 
             store_names = commodity_id2company_name(id)
             for row in store_names:
-                store_dict = company_name2vendor(row)
+                store_dict = company_name2vendor_id(row)
                 stores.append(store_dict)
 
             dict_commo["stores"] = stores

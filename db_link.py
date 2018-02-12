@@ -5,7 +5,7 @@ import sql
 import pymysql
 
 
-def company_name2vendor(company_name):
+def company_name2vendor_id(company_name):
     try:
         # 打开数据库连接
         db = pymysql.connect("localhost", "root", "wujiahao.", "flaskTest",charset='utf8')
