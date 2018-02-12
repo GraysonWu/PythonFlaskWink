@@ -84,3 +84,28 @@ def commodity_id2commodity_name(id):
 
     except:
         return "无法连接数据库"
+
+
+def vendor_name2company_name(vendor_name):
+    try:
+        # 打开数据库连接
+        db = pymysql.connect("localhost", "root", "wujiahao.", "flaskTest",charset='utf8')
+
+        # 使用cursor()方法获取操作游标
+        cursor = db.cursor()
+
+        key = ['company_name']
+        condition = dict()
+        condition['username'] = vendor_name
+
+        query = sql.select("vendor", key, condition, 0)
+
+        if cursor.execute(query):
+            info = cursor.fetchone()
+            result = info[0]
+
+        db.close()
+        return result
+
+    except:
+        return "无法连接数据库"

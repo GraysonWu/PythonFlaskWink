@@ -57,3 +57,14 @@ def delete(table, conditions):
     if conditions:
         sql += ' where %s ' % utility.dict_2_str_and(conditions)
     return sql
+
+
+def replace(table, dict):
+    # '''
+    # create replace
+    # @table tablename
+    # @dict{}
+    # '''
+    sql = 'REPLACE INTO %s SET ' % table
+    sql += utility.dict_2_str(dict)
+    return sql

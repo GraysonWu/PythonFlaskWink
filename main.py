@@ -16,6 +16,7 @@ from home_commodity import home_commodity
 from commodity_detail import commodity_detail
 from home_store import home_store
 from vendor_op import vendor_exist, vendor_info, vendor_edit
+from product_op import enter_spec
 
 from werkzeug.datastructures import Headers
 
@@ -186,6 +187,22 @@ def vendoredit():
     basicinfo = entities.Basicinfo(company, address, phone, fax, star, pic)
 
     result = vendor_edit(name, basicinfo)
+    response = entities.ResponseClass(True, "", "null")
+
+    response.msg = result[1]
+    response.isSuccess = result[0]
+
+    resp_dict = utility.class_2_dict(response)
+    result = json.dumps(resp_dict, sort_keys=True, indent=4, separators=(',', ':'), ensure_ascii=False).encode('utf8')
+
+    return result
+
+
+@app.route('/store/enterproduct/spec', methods=['POST'])
+def enterspec():
+    enter_info = request.json.get("enterproduct")
+
+    result = enter_spec(enter_info)
     response = entities.ResponseClass(True, "", "null")
 
     response.msg = result[1]
