@@ -70,6 +70,7 @@ def vendor_info(name_get):
 
         # 生成SQL语句
         query = sql.select("vendor", key, condition, 0)
+        print(query)
         # 使用execute方法执行SQL语句
         if cursor.execute(query):
             # 获取结果
@@ -81,7 +82,10 @@ def vendor_info(name_get):
             result['phone'] = data[2]
             result['fax'] = data[3]
             result['star'] = commodity_id2commodity_name(data[4])
-            result['pic'] = utility.path_2_base64(data[5])
+            try:
+                result['pic'] = utility.path_2_base64(data[5])
+            except:
+                result['pic'] = "null"
 
             return True, "获取商家基本信息成功", result
 
