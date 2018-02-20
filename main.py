@@ -15,7 +15,7 @@ from login_process import login_process
 from home_commodity import home_commodity
 from commodity_detail import commodity_detail
 from home_store import home_store
-from vendor_op import vendor_exist, vendor_info, vendor_edit
+from vendor_op import vendor_exist, vendor_info, vendor_edit, vendor_total_info
 from product_op import enter_spec
 
 from werkzeug.datastructures import Headers
@@ -200,9 +200,12 @@ def vendoredit():
 
 @app.route('/store/enterproduct/spec', methods=['POST'])
 def enterspec():
-    enter_info = request.json.get("enterproduct")
+    name = request.json.get("name")
+    url = request.json.get("url")
+    productId = request.json.get("productId")
+    detail = request.json.get("detail")
 
-    result = enter_spec(enter_info)
+    result = enter_spec(name, productId, detail, url)
     response = entities.ResponseClass(True, "", "null")
 
     response.msg = result[1]
@@ -211,6 +214,22 @@ def enterspec():
     resp_dict = utility.class_2_dict(response)
     result = json.dumps(resp_dict, sort_keys=True, indent=4, separators=(',', ':'), ensure_ascii=False).encode('utf8')
 
+    return result
+
+
+@app.route('/store/totalinfo', methods=['GET'])
+def vendortotalinfo():
+    name_get = request.args.get('name')
+
+    result = vendor_total_info(name_get)
+    response = entities.ResponseClass(True, "", "null")
+
+    response.isSuccess = result[0]
+    response.msg = result[1]
+    response.data = result[2]
+
+    resp_dict = utility.class_2_dict(response)
+    result = json.dumps(resp_dict, sort_keys=True, indent=4, separators=(',', ':'), ensure_ascii=False).encode('utf8')
     return result
 
 
