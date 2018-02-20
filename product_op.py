@@ -53,7 +53,7 @@ def enter_spec(name, commodityId, detail, url):
 
 def total_commoditys(company_name):
     try:
-        result = list()
+        total = list()
         # 打开数据库连接
         db = pymysql.connect("localhost", "root", "wujiahao.", "flaskTest", charset='utf8')
 
@@ -68,31 +68,60 @@ def total_commoditys(company_name):
         cursor.execute(query)
 
         commodities = cursor.fetchall()
-
-        key = ["spec", "price", "pdf_path"]
-        condition["company"] = company_name
+        detail = list()
         for commodity in commodities:
-            per_commodity = dict()
-            
-            detail = list()
-
-            condition["commodity_id"] = commodity[0]
-            query = sql.select("provide", key, condition, 0)
-            if cursor.execute(query):
-                details = cursor.fetchall()
-                for sp in details:
-                    per_sp = dict()
-                    per_sp["spec"] = sp[0]
-                    per_sp["price"] = sp[1]
-                    detail.append(per_sp)
-                per_commodity["detail"] = detail
-                per_commodity["productId"] = commodity[0]
-                per_commodity["productName"] = commodity[1]
-                per_commodity["pdf"] = details[0][2]
-                result.append(per_commodity)
+            dp = per_commoditys(company_name, commodity[0])
+            print(dp[2])
+            result = dict()
+            if dp[0]:
+                result["productId"] = commodity[0]
+                result["productName"] = commodity[1]
+                result["detail"] = dp[2]["detail"]
+                result["pdf"] = dp[2]["pdf"]
+                total.append(result)
         db.close()
-        return result
+        return total
 
 
     except:
         return False, "获取商家详细信息失败", "null"
+
+
+def per_commoditys(company_name,commodity_id):
+    try:
+        result = dict()
+        # 打开数据库连接
+        db = pymysql.connect("localhost", "root", "wujiahao.", "flaskTest", charset='utf8')
+
+        # 使用cursor()方法获取操作游标
+        cursor = db.cursor()
+
+        key = ["spec", "price", "pdf_path"]
+
+        condition = dict()
+        condition["company"] = company_name
+        condition["commodity_id"] = commodity_id
+
+        query = sql.select("provide", key, condition, 0)
+
+        detail = list()
+        if cursor.execute(query):
+            details = cursor.fetchall()
+            pdf_path = details[0][2]
+
+            for sp in details:
+                per_sp = dict()
+                per_sp["spec"] = sp[0]
+                per_sp["price"] = sp[1]
+                detail.append(per_sp)
+
+            result["detail"] = detail
+            result["pdf"] = pdf_path
+            db.close()
+            return True, "获取特定产品信息成功", result
+        else:
+            db.close()
+            return False, "商品不存在", "null"
+
+    except:
+        return False, "连接数据库失败", "null"
