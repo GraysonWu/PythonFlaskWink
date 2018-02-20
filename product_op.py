@@ -103,7 +103,6 @@ def per_commoditys(company_name,commodity_id):
         condition["commodity_id"] = commodity_id
 
         query = sql.select("provide", key, condition, 0)
-
         detail = list()
         if cursor.execute(query):
             details = cursor.fetchall()

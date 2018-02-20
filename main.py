@@ -5,7 +5,7 @@
 from flask import Flask, request, Response
 
 import entities
-import utility
+import utility, db_link
 import json
 
 from hd_base import require
@@ -237,8 +237,9 @@ def vendortotalinfo():
 def perprovide():
     name_get = request.args.get('name')
     productId_get = request.args.get('productId')
+    company_name = db_link.vendor_name2company_name(name_get)
 
-    result = per_commoditys(name_get, productId_get)
+    result = per_commoditys(company_name, productId_get)
     response = entities.ResponseClass(True, "", "null")
 
     response.isSuccess = result[0]
