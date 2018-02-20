@@ -170,13 +170,13 @@ def vendor_total_info(name_get):
             result['phone'] = data[2]
             result['fax'] = data[3]
             result['star'] = commodity_id2commodity_name(data[4])
-            print(result)
             result['products'] = total_commoditys(data[0])
             try:
                 result['pic'] = utility.path_2_base64(data[5])
             except:
                 result['pic'] = "null"
 
+            db.close()
             return True, "获取商家基本信息成功", result
 
         else:

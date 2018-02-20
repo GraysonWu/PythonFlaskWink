@@ -90,7 +90,7 @@ def total_commoditys(company_name):
                 per_commodity["productName"] = commodity[1]
                 per_commodity["pdf"] = details[0][2]
                 result.append(per_commodity)
-
+        db.close()
         return result
 
 
