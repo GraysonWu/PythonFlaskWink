@@ -96,7 +96,6 @@ def vendor_info(name_get):
             db.close()
             return False, "获取商家基本信息成功失败", "null"
 
-
     except:
         return False, "无法连接数据库" , "null"
 
@@ -144,48 +143,19 @@ def vendor_edit(name_get, basicinfo):
 
 def vendor_total_info(name_get):
     try:
-        # 打开数据库连接
-        db = pymysql.connect("localhost", "root", "wujiahao.", "flaskTest", charset='utf8')
-
-        # 使用cursor()方法获取操作游标
-        cursor = db.cursor()
-
-        # 查询字段
-        key = ['company_name', 'company_address', 'company_number', 'company_tax', 'main_product', 'company_pic']
-
-        # 查询条件
-        condition = dict()
-        condition['username'] = name_get
-
-        # 生成SQL语句
-        query = sql.select("vendor", key, condition, 0)
-        # 使用execute方法执行SQL语句
-        if cursor.execute(query):
+        vi = vendor_info(name_get)
+        if vi[0]:
             # 获取结果
-            data = cursor.fetchone()
-
-            result = dict()
-            result['company'] = data[0]
-            result['address'] = data[1]
-            result['phone'] = data[2]
-            result['fax'] = data[3]
-            result['star'] = commodity_id2commodity_name(data[4])
-            result['products'] = total_commoditys(data[0])
+            result = vi[2]
+            result['products'] = total_commoditys(result["company"])
             try:
-                result['pic'] = utility.path_2_base64(data[5])
+                result['pic'] = utility.path_2_base64(result["pic"])
             except:
                 result['pic'] = "null"
-
-            db.close()
             return True, "获取商家基本信息成功", result
 
         else:
-
-            # 关闭数据库连接
-            db.close()
             return False, "获取商家基本信息成功失败", "null"
-
 
     except:
         return False, "无法连接数据库" , "null"
-

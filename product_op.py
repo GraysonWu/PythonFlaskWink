@@ -71,7 +71,6 @@ def total_commoditys(company_name):
         detail = list()
         for commodity in commodities:
             dp = per_commoditys(company_name, commodity[0])
-            print(dp[2])
             result = dict()
             if dp[0]:
                 result["productId"] = commodity[0]
