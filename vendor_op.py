@@ -148,10 +148,7 @@ def vendor_total_info(name_get):
             # 获取结果
             result = vi[2]
             result['products'] = total_commoditys(result["company"])
-            try:
-                result['pic'] = utility.path_2_base64(result["pic"])
-            except:
-                result['pic'] = "null"
+
             return True, "获取商家基本信息成功", result
 
         else:

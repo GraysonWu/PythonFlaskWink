@@ -3,8 +3,6 @@
 # __author__ = "Jeako_Wu"
 import sql
 import pymysql
-import json
-import utility
 from db_link import commodity_id2commodity_name, vendor_name2company_name
 
 
@@ -64,7 +62,6 @@ def total_commoditys(company_name):
         condition = dict()
 
         query = sql.select("commodity", key, condition , 0)
-
         cursor.execute(query)
 
         commodities = cursor.fetchall()
@@ -80,8 +77,6 @@ def total_commoditys(company_name):
                 total.append(result)
         db.close()
         return total
-
-
     except:
         return False, "获取商家详细信息失败", "null"
 
@@ -123,3 +118,40 @@ def per_commoditys(company_name,commodity_id):
 
     except:
         return False, "连接数据库失败", "null"
+
+
+def enter_pdf(name, productId, pdf_path):
+    try:
+        # 打开数据库连接
+        db = pymysql.connect("localhost", "root", "wujiahao.", "flaskTest", charset='utf8')
+
+        # 使用cursor()方法获取操作游标
+        cursor = db.cursor()
+
+        value = dict()
+        value["pdf_path"] = pdf_path
+
+        company_name = vendor_name2company_name(name)
+        condition = dict()
+        condition['company'] = company_name
+        condition['commodity_id'] = productId
+
+        # 生成SQL语句
+        query = sql.update("provide", value, condition)
+
+        # 使用execute方法执行SQL语句
+        try:
+            cursor.execute(query)
+            db.commit()
+            db.close()
+            result = total_commoditys(company_name)
+            return True, "录入pdf成功", result
+
+        except:
+            db.rollback()
+            db.close()
+            result = total_commoditys(company_name)
+            return False, "录入pdf失败", result
+
+    except:
+        return False, "无法连接数据库" , "null"

@@ -1,8 +1,10 @@
 # !/usr/bin/python3
 # -*- coding: utf-8 -*-
 # __author__ = "Jeako_Wu"
+import os
 
 from flask import Flask, request, Response
+
 
 import entities
 import utility, db_link
@@ -16,7 +18,7 @@ from home_commodity import home_commodity
 from commodity_detail import commodity_detail
 from home_store import home_store
 from vendor_op import vendor_exist, vendor_info, vendor_edit, vendor_total_info
-from product_op import enter_spec, per_commoditys
+from product_op import enter_spec, per_commoditys, enter_pdf
 
 from werkzeug.datastructures import Headers
 
@@ -39,13 +41,19 @@ class MyResponse(Response):
         return super().__init__(response, **kwargs)
 
 
-UPLOAD_FOLDER = '/path/to/the/uploads'
+UPLOAD_FOLDER = '/var/lib/tomcat7/webapps/ROOT/pdf'
+# UPLOAD_FOLDER = '/Users/jeako/Desktop'
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
 
 app = Flask(__name__)
 app.response_class = MyResponse
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
 
 @app.route('/')
@@ -249,6 +257,36 @@ def perprovide():
     resp_dict = utility.class_2_dict(response)
     result = json.dumps(resp_dict, sort_keys=True, indent=4, separators=(',', ':'), ensure_ascii=False).encode('utf8')
     return result
+
+
+@app.route('/store/enterproduct/pdf', methods=['POST'])
+def uploadpdf():
+    name = request.form.get("name")
+    productId = request.form.get("productId")
+    file = request.files["file"]
+
+    filename = ""
+    if request.method == 'POST':
+        if file and allowed_file(file.filename):
+            filename = name
+            filename += "_"
+            filename += productId
+            filename += ".pdf"
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+
+    pdf_path = "wink.net.cn:8000/pdf/" + filename
+    result = enter_pdf(name, productId, pdf_path)
+    response = entities.ResponseClass(True, "", "null")
+
+    response.msg = result[1]
+    response.isSuccess = result[0]
+    response.data = result[2]
+
+    resp_dict = utility.class_2_dict(response)
+    result = json.dumps(resp_dict, sort_keys=True, indent=4, separators=(',', ':'), ensure_ascii=False).encode('utf8')
+
+    return result
+
 
 def main():
     # app.run(host='45.77.190.232', port=5000, debug=True)
