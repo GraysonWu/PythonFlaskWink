@@ -155,3 +155,32 @@ def enter_pdf(name, productId, pdf_path):
 
     except:
         return False, "无法连接数据库" , "null"
+
+
+def delete_product(name,productId):
+    try:
+        result = dict()
+        # 打开数据库连接
+        db = pymysql.connect("localhost", "root", "wujiahao.", "flaskTest", charset='utf8')
+
+        # 使用cursor()方法获取操作游标
+        cursor = db.cursor()
+
+        condition = dict()
+        condition["commodity_id"] = productId
+        condition["company"] = vendor_name2company_name(name)
+
+        query = sql.delete("provide", condition)
+
+        try:
+            cursor.execute(query)
+            db.commit()
+            db.close()
+            return True, "删除商品成功", "null"
+        except:
+            db.rollback()
+            db.close()
+            return False, "删除商品失败", "null"
+
+    except:
+        return False, "连接数据库失败", "null"
