@@ -26,6 +26,7 @@ def company_name2vendor_id(company_name):
             result["id"] = info[0]
             result["company_name"] = company_name
 
+
         db.close()
         return result
     except:
@@ -107,5 +108,31 @@ def vendor_name2company_name(vendor_name):
         db.close()
         return result
 
+    except:
+        return "无法连接数据库"
+
+
+def company_name2vendor_name(company_name):
+    try:
+        # 打开数据库连接
+        db = pymysql.connect("localhost", "root", "wujiahao.", "flaskTest", charset='utf8')
+
+        # 使用cursor()方法获取操作游标
+        cursor = db.cursor()
+
+        result = {}
+
+        key = ['username']
+        condition = dict()
+        condition['company_name'] = company_name
+
+        query = sql.select("vendor", key, condition, 0)
+
+        if cursor.execute(query):
+            info = cursor.fetchone()
+            result["vendor"] = info[0]
+
+        db.close()
+        return result["vendor"]
     except:
         return "无法连接数据库"

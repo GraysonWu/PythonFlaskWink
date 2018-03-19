@@ -341,6 +341,23 @@ def getspecpdf():
     return result
 
 
+@app.route('/store/detail', methods=['GET'])
+def storedetail():
+    name_get = request.args.get('companyname')
+    company = db_link.company_name2vendor_name(name_get)
+    result = vendor_total_info(company)
+
+    response = entities.ResponseClass(True, "", "null")
+
+    response.isSuccess = result[0]
+    response.msg = result[1]
+    response.data = result[2]
+
+    resp_dict = utility.class_2_dict(response)
+    result = json.dumps(resp_dict, sort_keys=True, indent=4, separators=(',', ':'), ensure_ascii=False).encode('utf8')
+    return result
+
+
 def main():
     app.run(host='45.77.190.232', port=5000, debug=True)
     # app.run(port=8080, debug=True)

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0f7eaf21-625b-428d-a264-d8ab8d25316c" name="Default" comment="">
+    <list default="true" id="0f7eaf21-625b-428d-a264-d8ab8d25316c" name="Default" comment="get spec &amp; pdf">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db_link.py" afterPath="$PROJECT_DIR$/db_link.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/product_op.py" afterPath="$PROJECT_DIR$/product_op.py" />
     </list>
     <ignored path="PythonFlaskWink.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,8 +39,8 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="335" column="28" selection-start-line="335" selection-start-column="28" selection-end-line="335" selection-end-column="28" />
+            <state relative-caret-position="286">
+              <caret line="344" column="15" selection-start-line="344" selection-start-column="15" selection-end-line="344" selection-end-column="15" />
               <folding>
                 <element signature="e#70#79#0" expanded="true" />
                 <element signature="e#726#1311#0" expanded="false" />
@@ -53,10 +53,11 @@
                 <element signature="e#4982#5389#0" expanded="false" />
                 <element signature="e#5462#6146#0" expanded="false" />
                 <element signature="e#6227#6740#0" expanded="false" />
-                <element signature="e#6818#7231#0" expanded="false" />
                 <element signature="e#7313#7854#0" expanded="false" />
                 <element signature="e#8860#9320#0" expanded="false" />
-                <marker date="1521440186522" expanded="false" signature="7929:8779" ph="..." />
+                <element signature="e#9384#9927#0" expanded="false" />
+                <element signature="e#9992#10484#0" expanded="false" />
+                <marker date="1521441533547" expanded="false" signature="7929:8779" ph="..." />
               </folding>
             </state>
           </provider>
@@ -65,8 +66,8 @@
       <file leaf-file-name="product_op.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/product_op.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2574">
-              <caret line="243" column="22" selection-start-line="243" selection-start-column="22" selection-end-line="243" selection-end-column="22" />
+            <state relative-caret-position="726">
+              <caret line="187" column="0" selection-start-line="187" selection-start-column="0" selection-end-line="187" selection-end-column="0" />
               <folding>
                 <element signature="e#70#80#0" expanded="true" />
                 <element signature="e#224#1398#0" expanded="false" />
@@ -74,6 +75,8 @@
                 <element signature="e#2390#3404#0" expanded="false" />
                 <element signature="e#3453#4369#0" expanded="false" />
                 <element signature="e#4412#5093#0" expanded="false" />
+                <element signature="e#5147#5890#0" expanded="false" />
+                <element signature="e#5938#6814#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -82,12 +85,12 @@
       <file leaf-file-name="vendor_op.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vendor_op.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="659">
+            <state relative-caret-position="1334">
               <caret line="99" column="40" selection-start-line="99" selection-start-column="40" selection-end-line="99" selection-end-column="40" />
               <folding>
                 <element signature="e#70#80#0" expanded="true" />
                 <element signature="e#233#1247#0" expanded="false" />
-                <element signature="e#3570#3907#0" expanded="false" />
+                <element signature="e#2527#3530#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -96,11 +99,24 @@
       <file leaf-file-name="db_link.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db_link.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="387">
-              <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
+            <state relative-caret-position="379">
+              <caret line="130" column="33" selection-start-line="130" selection-start-column="33" selection-end-line="130" selection-end-column="33" />
               <folding>
                 <element signature="e#70#80#0" expanded="true" />
+                <element signature="e#783#1344#0" expanded="false" />
+                <element signature="e#1388#1954#0" expanded="false" />
+                <element signature="e#2004#2517#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="commodity_detail.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/commodity_detail.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="236">
+              <caret line="45" column="29" selection-start-line="45" selection-start-column="29" selection-end-line="45" selection-end-column="29" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -187,10 +203,10 @@
         <option value="$PROJECT_DIR$/utility.py" />
         <option value="$PROJECT_DIR$/commodity_detail.py" />
         <option value="$PROJECT_DIR$/sql.py" />
-        <option value="$PROJECT_DIR$/db_link.py" />
         <option value="$PROJECT_DIR$/register_process.py" />
         <option value="$PROJECT_DIR$/vendor_op.py" />
         <option value="$PROJECT_DIR$/product_op.py" />
+        <option value="$PROJECT_DIR$/db_link.py" />
         <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
@@ -543,13 +559,6 @@
       <option name="presentableId" value="Default" />
       <updated>1512318554404</updated>
     </task>
-    <task id="LOCAL-00011" summary="test">
-      <created>1512322115588</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1512322115588</updated>
-    </task>
     <task id="LOCAL-00012" summary="test">
       <created>1512439476601</created>
       <option name="number" value="00012" />
@@ -886,7 +895,14 @@
       <option name="project" value="LOCAL" />
       <updated>1521438830032</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="get spec &amp; pdf">
+      <created>1521440472597</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1521440472597</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TodoView">
@@ -904,11 +920,12 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16762637" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914045" sideWeight="0.497558" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21675774" sideWeight="0.5412668" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3287796" sideWeight="0.50543827" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3287796" sideWeight="0.49456173" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32747254" sideWeight="0.48358414" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914045" sideWeight="0.495116" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21675774" sideWeight="0.4587332" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21675774" sideWeight="0.4587332" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914045" sideWeight="0.497558" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -918,7 +935,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.49726403" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -935,7 +951,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="complete interface of login and register" />
     <MESSAGE value="change name of the interface of signup" />
     <MESSAGE value="revise response &amp; complete cross field problem" />
     <MESSAGE value="new db tables&#10;" />
@@ -960,23 +975,12 @@
     <MESSAGE value="pdf upload" />
     <MESSAGE value="delete product&#10;" />
     <MESSAGE value="get price" />
-    <option name="LAST_COMMIT_MESSAGE" value="get price" />
+    <MESSAGE value="get spec &amp; pdf" />
+    <option name="LAST_COMMIT_MESSAGE" value="get spec &amp; pdf" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/db_link.py</url>
-          <line>100</line>
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/db_link.py</url>
-          <line>103</line>
-          <option name="timeStamp" value="30" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="39" />
+      <option name="time" value="40" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
@@ -1031,10 +1035,11 @@
             <element signature="e#4982#5389#0" expanded="false" />
             <element signature="e#5462#6146#0" expanded="false" />
             <element signature="e#6227#6740#0" expanded="false" />
-            <element signature="e#6818#7231#0" expanded="false" />
             <element signature="e#7313#7854#0" expanded="false" />
             <element signature="e#8860#9320#0" expanded="false" />
-            <marker date="1521440186522" expanded="false" signature="7929:8779" ph="..." />
+            <element signature="e#9384#9927#0" expanded="false" />
+            <element signature="e#9992#10484#0" expanded="false" />
+            <marker date="1521441533547" expanded="false" signature="7929:8779" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1106,10 +1111,11 @@
             <element signature="e#4982#5389#0" expanded="false" />
             <element signature="e#5462#6146#0" expanded="false" />
             <element signature="e#6227#6740#0" expanded="false" />
-            <element signature="e#6818#7231#0" expanded="false" />
             <element signature="e#7313#7854#0" expanded="false" />
             <element signature="e#8860#9320#0" expanded="false" />
-            <marker date="1521440186522" expanded="false" signature="7929:8779" ph="..." />
+            <element signature="e#9384#9927#0" expanded="false" />
+            <element signature="e#9992#10484#0" expanded="false" />
+            <marker date="1521441533547" expanded="false" signature="7929:8779" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1174,10 +1180,11 @@
             <element signature="e#4982#5389#0" expanded="false" />
             <element signature="e#5462#6146#0" expanded="false" />
             <element signature="e#6227#6740#0" expanded="false" />
-            <element signature="e#6818#7231#0" expanded="false" />
             <element signature="e#7313#7854#0" expanded="false" />
             <element signature="e#8860#9320#0" expanded="false" />
-            <marker date="1521440186522" expanded="false" signature="7929:8779" ph="..." />
+            <element signature="e#9384#9927#0" expanded="false" />
+            <element signature="e#9992#10484#0" expanded="false" />
+            <marker date="1521441533547" expanded="false" signature="7929:8779" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1242,10 +1249,11 @@
             <element signature="e#4982#5389#0" expanded="false" />
             <element signature="e#5462#6146#0" expanded="false" />
             <element signature="e#6227#6740#0" expanded="false" />
-            <element signature="e#6818#7231#0" expanded="false" />
             <element signature="e#7313#7854#0" expanded="false" />
             <element signature="e#8860#9320#0" expanded="false" />
-            <marker date="1521440186522" expanded="false" signature="7929:8779" ph="..." />
+            <element signature="e#9384#9927#0" expanded="false" />
+            <element signature="e#9992#10484#0" expanded="false" />
+            <marker date="1521441533547" expanded="false" signature="7929:8779" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1295,10 +1303,11 @@
             <element signature="e#4982#5389#0" expanded="false" />
             <element signature="e#5462#6146#0" expanded="false" />
             <element signature="e#6227#6740#0" expanded="false" />
-            <element signature="e#6818#7231#0" expanded="false" />
             <element signature="e#7313#7854#0" expanded="false" />
             <element signature="e#8860#9320#0" expanded="false" />
-            <marker date="1521440186522" expanded="false" signature="7929:8779" ph="..." />
+            <element signature="e#9384#9927#0" expanded="false" />
+            <element signature="e#9992#10484#0" expanded="false" />
+            <marker date="1521441533547" expanded="false" signature="7929:8779" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1358,13 +1367,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/commodity_detail.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/login_process.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="941">
@@ -1403,16 +1405,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db_link.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
-          <folding>
-            <element signature="e#70#80#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/local/lib/python3.6/site-packages/werkzeug/serving.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="281">
@@ -1433,22 +1425,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor_op.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="659">
-          <caret line="99" column="40" selection-start-line="99" selection-start-column="40" selection-end-line="99" selection-end-column="40" />
-          <folding>
-            <element signature="e#70#80#0" expanded="true" />
-            <element signature="e#233#1247#0" expanded="false" />
-            <element signature="e#3570#3907#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/product_op.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2574">
-          <caret line="243" column="22" selection-start-line="243" selection-start-column="22" selection-end-line="243" selection-end-column="22" />
+        <state relative-caret-position="726">
+          <caret line="187" column="0" selection-start-line="187" selection-start-column="0" selection-end-line="187" selection-end-column="0" />
           <folding>
             <element signature="e#70#80#0" expanded="true" />
             <element signature="e#224#1398#0" expanded="false" />
@@ -1456,14 +1436,49 @@
             <element signature="e#2390#3404#0" expanded="false" />
             <element signature="e#3453#4369#0" expanded="false" />
             <element signature="e#4412#5093#0" expanded="false" />
+            <element signature="e#5147#5890#0" expanded="false" />
+            <element signature="e#5938#6814#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor_op.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1334">
+          <caret line="99" column="40" selection-start-line="99" selection-start-column="40" selection-end-line="99" selection-end-column="40" />
+          <folding>
+            <element signature="e#70#80#0" expanded="true" />
+            <element signature="e#233#1247#0" expanded="false" />
+            <element signature="e#2527#3530#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commodity_detail.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="45" column="29" selection-start-line="45" selection-start-column="29" selection-end-line="45" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db_link.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="130" column="33" selection-start-line="130" selection-start-column="33" selection-end-line="130" selection-end-column="33" />
+          <folding>
+            <element signature="e#70#80#0" expanded="true" />
+            <element signature="e#783#1344#0" expanded="false" />
+            <element signature="e#1388#1954#0" expanded="false" />
+            <element signature="e#2004#2517#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="335" column="28" selection-start-line="335" selection-start-column="28" selection-end-line="335" selection-end-column="28" />
+        <state relative-caret-position="286">
+          <caret line="344" column="15" selection-start-line="344" selection-start-column="15" selection-end-line="344" selection-end-column="15" />
           <folding>
             <element signature="e#70#79#0" expanded="true" />
             <element signature="e#726#1311#0" expanded="false" />
@@ -1476,10 +1491,11 @@
             <element signature="e#4982#5389#0" expanded="false" />
             <element signature="e#5462#6146#0" expanded="false" />
             <element signature="e#6227#6740#0" expanded="false" />
-            <element signature="e#6818#7231#0" expanded="false" />
             <element signature="e#7313#7854#0" expanded="false" />
             <element signature="e#8860#9320#0" expanded="false" />
-            <marker date="1521440186522" expanded="false" signature="7929:8779" ph="..." />
+            <element signature="e#9384#9927#0" expanded="false" />
+            <element signature="e#9992#10484#0" expanded="false" />
+            <marker date="1521441533547" expanded="false" signature="7929:8779" ph="..." />
           </folding>
         </state>
       </provider>
