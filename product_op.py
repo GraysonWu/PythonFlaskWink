@@ -184,3 +184,34 @@ def delete_product(name,productId):
 
     except:
         return False, "连接数据库失败", "null"
+
+def get_price(company_name,commodity_id,spec):
+    try:
+        result = dict()
+        # 打开数据库连接
+        db = pymysql.connect("localhost", "root", "wujiahao.", "flaskTest", charset='utf8')
+
+        # 使用cursor()方法获取操作游标
+        cursor = db.cursor()
+
+        key = ["price"]
+
+        condition = dict()
+        condition["company"] = company_name
+        condition["commodity_id"] = commodity_id
+        condition["spec"] = spec
+
+        query = sql.select("provide", key, condition, 0)
+        print(query)
+        result = dict()
+        if cursor.execute(query):
+            data = cursor.fetchone()
+            result['price'] = data[0]
+            db.close()
+            return True, "获取特定产品信息成功", result
+        else:
+            db.close()
+            return False, "商品不存在", "null"
+
+    except:
+        return False, "获取价格失败", "null"

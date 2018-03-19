@@ -18,7 +18,7 @@ from home_commodity import home_commodity
 from commodity_detail import commodity_detail
 from home_store import home_store
 from vendor_op import vendor_exist, vendor_info, vendor_edit, vendor_total_info
-from product_op import enter_spec, per_commoditys, enter_pdf, delete_product
+from product_op import enter_spec, per_commoditys, enter_pdf, delete_product, get_price
 
 from werkzeug.datastructures import Headers
 
@@ -306,9 +306,27 @@ def deleteproduct():
     return result
 
 
+@app.route('/getPrice', methods=['GET'])
+def getprice():
+    company_name_get = request.args.get('companyName')
+    productId_get = request.args.get('productId')
+    spec_get = request.args.get('spec')
+
+    result = get_price(company_name_get, productId_get, spec_get)
+    response = entities.ResponseClass(True, "", "null")
+
+    response.isSuccess = result[0]
+    response.msg = result[1]
+    response.data = result[2]
+
+    resp_dict = utility.class_2_dict(response)
+    result = json.dumps(resp_dict, sort_keys=True, indent=4, separators=(',', ':'), ensure_ascii=False).encode('utf8')
+    return result
+
+
 def main():
-    app.run(host='45.77.190.232', port=5000, debug=True)
-    # app.run(port=8080, debug=True)
+    # app.run(host='45.77.190.232', port=5000, debug=True)
+    app.run(port=8080, debug=True)
 
 
 if __name__ == '__main__':
