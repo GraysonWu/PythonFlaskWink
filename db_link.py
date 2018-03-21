@@ -53,6 +53,7 @@ def commodity_id2company_name(id):
             for row in info:
                 stores.append(row[0])
         db.close()
+        stores = list(set(stores))
         return stores
 
     except:
