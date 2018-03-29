@@ -1,17 +1,25 @@
+/*
+ Navicat Premium Data Transfer
 
-CREATE DATABASE flaskTest;
-USE flaskTest;
+ Source Server         : Local
+ Source Server Type    : MySQL
+ Source Server Version : 50720
+ Source Host           : localhost:3306
+ Source Schema         : flaskTest
 
-CREATE TABLE customer(id INT(20) AUTO_INCREMENT PRIMARY KEY ,number VARCHAR(20)  UNIQUE, username VARCHAR(100)  UNIQUE, password VARCHAR(100),register_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP)DEFAULT CHARSET=utf8;
+ Target Server Type    : MySQL
+ Target Server Version : 50720
+ File Encoding         : 65001
 
-CREATE TABLE vendor(id INT(20) AUTO_INCREMENT PRIMARY KEY ,number VARCHAR(20)  UNIQUE, username VARCHAR(100)  UNIQUE, password VARCHAR(100),company_name VARCHAR(100),company_address VARCHAR(100),company_pic VARCHAR(100),company_tax VARCHAR(30),company_number VARCHAR(30),main_product VARCHAR(200),product VARCHAR(200), register_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP)DEFAULT CHARSET=utf8;
-
-
-CREATE TABLE commodity(id INT(20) PRIMARY KEY ,name VARCHAR(50),info VARCHAR(255), pic_path VARCHAR(50),ingredient VARCHAR(50),feature VARCHAR(50),manufacture VARCHAR(50),average_price VARCHAR(50))DEFAULT CHARSET=utf8;
+ Date: 29/03/2018 01:16:33
+*/
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
+-- ----------------------------
+-- Table structure for commodity
+-- ----------------------------
 DROP TABLE IF EXISTS `commodity`;
 CREATE TABLE `commodity` (
   `id` int(20) NOT NULL,
@@ -25,6 +33,9 @@ CREATE TABLE `commodity` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- ----------------------------
+-- Records of commodity
+-- ----------------------------
 BEGIN;
 INSERT INTO `commodity` VALUES (1, '长纤人造毛', '仿羊绒，是由晴纶经过特殊的工艺处理，使腈纶具有天然羊绒那种平滑、柔软，而富有弹性的手感，同时具有晴纶优良的染色性能的毛线。仿羊绒腈纶的纺丝、毛条的制造技术国内尚属首创。仿羊绒腈纶其独特的功能是膨松性和柔软性。', '/root/textile_land/home_icon/type_1.txt', '100%Acrylic', '平滑、柔软，而富有弹性。', '由腈纶经过特殊的工艺处理。', '111');
 INSERT INTO `commodity` VALUES (2, '抗起球羊毛包芯纱', '包芯纱又称复合纱或包覆纱，它是由两种或两种以上的纤维组合而成的一种新型纱线。最初的包芯纱是以棉纤维为皮、涤纶短纤纱为芯开发的短纤维与短纤维包芯纱。新珠线带涤包涤包芯线。', '/root/textile_land/home_icon/type_2.txt', '以一种材质原料（纱线）包覆另一种材质原料（纱线）', '透气性好、吸温性好、弹性高、稳定性好', '粗梳流程和精梳流程。', '222');
@@ -38,9 +49,92 @@ INSERT INTO `commodity` VALUES (9, '有色晴棉', '腈纶是聚丙烯腈纤维�
 INSERT INTO `commodity` VALUES (10, '拉架', '也称拉架棉，是氨纶中的一种，氨纶包括：弹性纤维、莱卡（拉卡）、拉架、斯潘德克斯。', '/root/textile_land/home_icon/type_10.txt', '氨纶', '伸阔性大、保型性好，而且不起皱。', '使用特殊装置拉架辘。', '22');
 COMMIT;
 
+-- ----------------------------
+-- Table structure for customer
+-- ----------------------------
+DROP TABLE IF EXISTS `customer`;
+CREATE TABLE `customer` (
+  `id` int(20) NOT NULL AUTO_INCREMENT,
+  `number` varchar(20) DEFAULT NULL,
+  `username` varchar(100) DEFAULT NULL,
+  `password` varchar(100) DEFAULT NULL,
+  `register_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `number` (`number`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Table structure for provide
+-- ----------------------------
+DROP TABLE IF EXISTS `provide`;
+CREATE TABLE `provide` (
+  `id` int(20) NOT NULL AUTO_INCREMENT,
+  `company` varchar(20) DEFAULT NULL,
+  `spec` varchar(50) DEFAULT NULL,
+  `commodity_id` int(20) DEFAULT NULL,
+  `price` varchar(50) DEFAULT NULL,
+  `pdf_path` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of provide
+-- ----------------------------
+BEGIN;
+INSERT INTO `provide` VALUES (1, '1', '1', 1, '1', '1');
+INSERT INTO `provide` VALUES (2, '2', '2', 1, '2', '2');
+INSERT INTO `provide` VALUES (5, '无法连接数据库', '28/2', 1, '23', '');
+INSERT INTO `provide` VALUES (6, '无法连接数据库', '26/2', 1, '423', '');
+COMMIT;
+
+-- ----------------------------
+-- Table structure for record
+-- ----------------------------
+DROP TABLE IF EXISTS `record`;
+CREATE TABLE `record` (
+  `id` int(20) NOT NULL AUTO_INCREMENT,
+  `costumer` varchar(20) DEFAULT NULL,
+  `provider_id` int(20) DEFAULT NULL,
+  `amount` int(20) DEFAULT NULL,
+  `total_price` varchar(20) DEFAULT NULL,
+  `color` varchar(20) DEFAULT NULL,
+  `status` varchar(20) DEFAULT NULL,
+  `order_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Table structure for vendor
+-- ----------------------------
+DROP TABLE IF EXISTS `vendor`;
+CREATE TABLE `vendor` (
+  `id` int(20) NOT NULL AUTO_INCREMENT,
+  `number` varchar(20) DEFAULT NULL,
+  `username` varchar(100) DEFAULT NULL,
+  `password` varchar(100) DEFAULT NULL,
+  `company_name` varchar(100) DEFAULT NULL,
+  `company_address` varchar(100) DEFAULT NULL,
+  `company_pic` varchar(100) DEFAULT NULL,
+  `company_tax` varchar(30) DEFAULT NULL,
+  `company_number` varchar(30) DEFAULT NULL,
+  `main_product` varchar(200) DEFAULT NULL,
+  `product` varchar(200) DEFAULT NULL,
+  `register_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `number` (`number`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of vendor
+-- ----------------------------
+BEGIN;
+INSERT INTO `vendor` VALUES (1, '1', '1', '1', '彬彬纺织', '广东东莞', '12321', '00000', '13609756780', '1', '1', '2018-01-03 15:25:55');
+INSERT INTO `vendor` VALUES (2, '2', '2', '2', '2', '2', '2', '2', '2', '2', '2', '2018-01-03 15:58:37');
+INSERT INTO `vendor` VALUES (3, '13609756780', 'jeako', '$5$rounds=535000$/qXqhZWtgROqlUSI$xl2R1tRlb2wa8ayVb8FVPLkl9U5mCyYxEZKM5T/unBB', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-02-12 17:31:37');
+INSERT INTO `vendor` VALUES (4, '1888888888', 'jeako1995', '$5$rounds=535000$9OLl8jfiT3RcW2JX$xeOVp9f.2VtFUvLn851XIg1eNw1rnPJiXCjcqyy1oJ2', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-02-12 19:32:26');
+INSERT INTO `vendor` VALUES (5, '1888888898', 'jeako19956', '$5$rounds=535000$eIww60VrQtcQqKEb$tgbkIKlloabp1QMJK3wcnxF6M7ecPOd56VtmXX1k8OA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-02-12 19:33:55');
+COMMIT;
+
 SET FOREIGN_KEY_CHECKS = 1;
-
-
-CREATE TABLE provide(id INT(20) AUTO_INCREMENT PRIMARY KEY,company VARCHAR(20), spec VARCHAR(50), commodity_id INT(20), price VARCHAR(50), pdf_path VARCHAR (100))DEFAULT CHARSET=utf8;
-
-CREATE TABLE record(id INT(20) AUTO_INCREMENT PRIMARY KEY,costumer VARCHAR(20), provider_id INT(20), amount INT(20), total_price VARCHAR(20), color VARCHAR(20),status VARCHAR(20),  order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP)DEFAULT CHARSET=utf8;
