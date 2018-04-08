@@ -311,8 +311,9 @@ def getprice():
     company_name_get = request.args.get('companyName')
     productId_get = request.args.get('productId')
     spec_get = request.args.get('spec')
+    number_get = request.args.get('number')
 
-    result = get_price(company_name_get, productId_get, spec_get)
+    result = get_price(company_name_get, productId_get, spec_get, number_get)
     response = entities.ResponseClass(True, "", "null")
 
     response.isSuccess = result[0]

@@ -186,12 +186,11 @@ def delete_product(name,productId):
         return False, "连接数据库失败", "null"
 
 
-def get_price(company_name,commodity_id,spec):
+def get_price(company_name,commodity_id,spec,number):
     try:
         result = dict()
         # 打开数据库连接
         db = pymysql.connect("localhost", "root", "wujiahao.", "flaskTest", charset='utf8')
-
         # 使用cursor()方法获取操作游标
         cursor = db.cursor()
 
@@ -205,7 +204,7 @@ def get_price(company_name,commodity_id,spec):
         query = sql.select("provide", key, condition, 0)
         if cursor.execute(query):
             data = cursor.fetchone()
-            result['price'] = data[0]
+            result['price'] = float(data[0])*float(number)
             db.close()
             return True, "获取特定产品信息成功", result
         else:
@@ -232,7 +231,6 @@ def get_spec(company_name,commodity_id):
         condition["commodity_id"] = commodity_id
 
         query = sql.select("provide", key, condition, 0)
-        print(query)
 
         if cursor.execute(query):
             data = cursor.fetchall()
